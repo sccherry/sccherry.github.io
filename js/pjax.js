@@ -32,6 +32,7 @@
     var router = document.querySelector("body"),
       title = document.querySelector("title"),
       description = document.querySelector("meta[name=description]"),
+      canonical = document.querySelector("link[rel=canonical]"),
       view = document.querySelector("main");
 
     router.classList.add("is-loading");
@@ -41,6 +42,7 @@
       description.textContent = response.querySelector(
         "meta[name=description]"
       ).textContent;
+      canonical.setAttribute('href', response.querySelector("link[rel=canonical]").getAttribute('href'));
       view.innerHTML = response.querySelector("main").innerHTML;
       router.classList.remove("is-loading");
     });

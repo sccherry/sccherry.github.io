@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>What closes a Github ticket? | Cherry on Top</title>
+  <meta name="description" content="What closes a Github ticket? Mon Oct 07 2019 Github provides useful functionality to automatically close tickets using keywords that reference the ticket...">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="/assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
+  <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#2b8a3e">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <meta name="apple-mobile-web-app-title" content="Cherry on Top">
+  <meta name="theme-color" content="#2b8a3e">
+  <meta name="application-name" content="Cherry on Top">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <link rel="manifest" href="/manifest.json">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://stevecherry.net/posts/2019/10/07/close-github-tickets/">
+  <link rel="alternate" type="application/rss+xml" title="Cherry on Top" href="/feed.xml">
+</head>
+
+<body class="o-sticky-footer o-container" prefix="schema: http://schema.org/">
+  <header role="banner">
+    <h1><a href="/">Cherry on Top</a></h1>
+  </header>
+
+  <nav role="navigation">
+    <ul><li><a href="/about/">About</a></li></ul>
+  </nav>
+
+  <main class="o-sticky-footer__content" role="main">
+    
+<article>
+  <header>
+    <h2>What closes a Github ticket?</h2>
+    <time datetime="2019-10-07T00:00:00.000Z">Mon Oct 07 2019</time>
+  </header>
+
+  <div class="s-longform">
+    <p>Github provides useful functionality to <a href="https://help.github.com/en/articles/closing-issues-using-keywords">automatically close tickets</a> using keywords that reference the ticket number. But where can you add those references? I dug in to find out.</p>
+<p>This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the <a href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow model</a> for our workflow, merging pull requests into a <code>develop</code> branch and waiting to merge to the <code>master</code> branch until we start a new deployment. Github assumes a PR will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.</p>
+<p>*[PR]: pull request</p>
+<p>I added keywords in 3 places:</p>
+<ol>
+<li>The pull request description.</li>
+<li>A comment on the pull request.</li>
+<li>In a Git commit message that is part of the pull request.</li>
+</ol>
+<p>I did the above 3 for the following 2 workflows (for a total of 6 tests):</p>
+<ul>
+<li>Pull request merges directly into master.</li>
+<li>Pull request first merges into a develop branch, then another PR merges into master.</li>
+</ul>
+<p>When merging a pull request directly into <code>master</code> tickets will automatically close if the keyword is in the pull request description (#1) or the commit message (#3). When merging first into <code>develop</code>, only a keyword in a commit message (#3) will close the ticket.</p>
+<p>You can see my work in the <a href="https://github.com/sccherry/close-ticket-test">Github repository</a> I used for these tests.</p>
+<p>So, if you have a workflow that uses separate <code>master</code> and <code>develop</code> branches, including the keywords in the commit messages is the best way to ensure that tickets will be closed automatically.</p>
+
+  </div>
+</article>
+
+  </main>
+
+  <footer role="contentinfo">
+    <hr>
+
+    <p>The online home of Steve Cherry.</p>
+
+    <ul class="u-list-inline">
+      <li><a href="/feed.xml">Feed</a></li>
+      <li><a href="mailto:stevenccherry@gmail.com">Email</a></li><li><a href="https://github.com/sccherry">Github</a></li><li><a href="https://codepen.io/sccherry">Codepen</a></li></ul>
+  </footer>
+
+  <script src="/js/pjax.js" defer></script>
+</body>
+</html>
