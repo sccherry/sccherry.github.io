@@ -19,6 +19,7 @@
   <meta name="apple-mobile-web-app-title" content="Cherry on Top">
   <meta name="theme-color" content="#2b8a3e">
   <meta name="application-name" content="Cherry on Top">
+  <meta name="msapplication-TileColor" content="#2b8a3e">
   <meta name="msapplication-config" content="/browserconfig.xml">
   <link rel="manifest" href="/manifest.json">
 
@@ -27,23 +28,23 @@
   <link rel="alternate" type="application/rss+xml" title="Cherry on Top" href="/feed.xml">
 </head>
 
-<body class="o-sticky-footer o-container" prefix="schema: http://schema.org/">
+<body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
   <header role="banner">
-    <h1><a href="/">Cherry on Top</a></h1>
+    <h1><a href="/" class="text-primary no-underline">Cherry on Top</a></h1>
   </header>
 
   <nav role="navigation">
     <ul><li><a href="/about/">About</a></li></ul>
   </nav>
 
-  <main class="o-sticky-footer__content" role="main">
+  <main class="flex-1" role="main">
     
 <section><header>
     <h2>About</h2>
-  </header><div class="s-longform">
-    <p>I develop software and play the tuba. I'm continuously trying to increase the nerdiness in my life.</p>
-<p>I currently work as a Drupal/front-end web developer for a government contractor near Washington, DC. I tackle the whole project lifecycle, including creating static templates from Photoshop files, creating themes from static templates, building functionality through site configuration and module development, QA testing, and ongoing maintenance. I'm like a jack-of-all-trades, master of...certainly more than none.</p>
-<p>Previously, I worked as an academic/electronic services librarianwhere I also did a fair amount of Drupal development---after getting a master's at the University of Michigan School of Information. So while I am skilled at development I am also interested in how technologies impact cultural heritage and the humanities.</p>
+  </header><div class="longform">
+    <p>I develop software and play the tuba. I’m continuously trying to increase the nerdiness in my life.</p>
+<p>I currently work as a Drupal/front-end web developer for a government contractor near Washington, DC. I tackle the whole project lifecycle, including creating static templates from Photoshop files, creating themes from static templates, building functionality through site configuration and module development, QA testing, and ongoing maintenance. I’m like a jack-of-all-trades, master of…certainly more than none.</p>
+<p>Previously, I worked as an academic/electronic services librarianwhere I also did a fair amount of Drupal development—after getting a master’s at the University of Michigan School of Information. So while I am skilled at development I am also interested in how technologies impact cultural heritage and the humanities.</p>
 <p>I also have a degree in music, which I am fortunate to still use while playing in a local <a href="http://gogosymphony.com">go-go symphony</a>.</p>
 
   </div>
@@ -51,16 +52,17 @@
 
   </main>
 
-  <footer role="contentinfo">
+  <footer class="mb-6" role="contentinfo">
     <hr>
 
-    <p>The online home of Steve Cherry.</p>
+    <p>The online home of Steve Cherry</p>
 
-    <ul class="u-list-inline">
-      <li><a href="/feed.xml">Feed</a></li>
-      <li><a href="mailto:stevenccherry@gmail.com">Email</a></li><li><a href="https://github.com/sccherry">Github</a></li><li><a href="https://codepen.io/sccherry">Codepen</a></li></ul>
+    <ul class="list-none pl-0 flex">
+      <li><a href="/feed.xml" class="hover:text-rss focus:text-rss">Feed</a></li>
+      <li class="ml-3"><a href="mailto:stevenccherry@gmail.com">Email</a></li><li class="ml-3"><a href="https://github.com/sccherry" class="hover:text-github focus:text-github">Github</a></li><li class="ml-3"><a href="https://codepen.io/sccherry" class="hover:text-codepen focus:text-codepen">Codepen</a></li></ul>
   </footer>
 
   <script src="/js/pjax.js" defer></script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>

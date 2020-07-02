@@ -19,6 +19,7 @@
   <meta name="apple-mobile-web-app-title" content="Cherry on Top">
   <meta name="theme-color" content="#2b8a3e">
   <meta name="application-name" content="Cherry on Top">
+  <meta name="msapplication-TileColor" content="#2b8a3e">
   <meta name="msapplication-config" content="/browserconfig.xml">
   <link rel="manifest" href="/manifest.json">
 
@@ -27,16 +28,16 @@
   <link rel="alternate" type="application/rss+xml" title="Cherry on Top" href="/feed.xml">
 </head>
 
-<body class="o-sticky-footer o-container" prefix="schema: http://schema.org/">
+<body class="font-sans text-default flex flex-col min-h-screen max-w-xl mx-auto px-3" prefix="schema: http://schema.org/">
   <header role="banner">
-    <h1><a href="/">Cherry on Top</a></h1>
+    <h1><a href="/" class="text-primary no-underline">Cherry on Top</a></h1>
   </header>
 
   <nav role="navigation">
     <ul><li><a href="/about/">About</a></li></ul>
   </nav>
 
-  <main class="o-sticky-footer__content" role="main">
+  <main class="flex-1" role="main">
     
 <article>
   <header>
@@ -44,10 +45,9 @@
     <time datetime="2019-10-07T00:00:00.000Z">Mon Oct 07 2019</time>
   </header>
 
-  <div class="s-longform">
+  <div class="longform">
     <p>Github provides useful functionality to <a href="https://help.github.com/en/articles/closing-issues-using-keywords">automatically close tickets</a> using keywords that reference the ticket number. But where can you add those references? I dug in to find out.</p>
-<p>This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the <a href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow model</a> for our workflow, merging pull requests into a <code>develop</code> branch and waiting to merge to the <code>master</code> branch until we start a new deployment. Github assumes a PR will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.</p>
-<p>*[PR]: pull request</p>
+<p>This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the <a href="https://nvie.com/posts/a-successful-git-branching-model/">git-flow model</a> for our workflow, merging pull requests into a <code>develop</code> branch and waiting to merge to the <code>master</code> branch until we start a new deployment. Github assumes a <abbr title="pull request">PR</abbr> will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.</p>
 <p>I added keywords in 3 places:</p>
 <ol>
 <li>The pull request description.</li>
@@ -57,7 +57,7 @@
 <p>I did the above 3 for the following 2 workflows (for a total of 6 tests):</p>
 <ul>
 <li>Pull request merges directly into master.</li>
-<li>Pull request first merges into a develop branch, then another PR merges into master.</li>
+<li>Pull request first merges into a develop branch, then another <abbr title="pull request">PR</abbr> merges into master.</li>
 </ul>
 <p>When merging a pull request directly into <code>master</code> tickets will automatically close if the keyword is in the pull request description (#1) or the commit message (#3). When merging first into <code>develop</code>, only a keyword in a commit message (#3) will close the ticket.</p>
 <p>You can see my work in the <a href="https://github.com/sccherry/close-ticket-test">Github repository</a> I used for these tests.</p>
@@ -68,16 +68,17 @@
 
   </main>
 
-  <footer role="contentinfo">
+  <footer class="mb-6" role="contentinfo">
     <hr>
 
-    <p>The online home of Steve Cherry.</p>
+    <p>The online home of Steve Cherry</p>
 
-    <ul class="u-list-inline">
-      <li><a href="/feed.xml">Feed</a></li>
-      <li><a href="mailto:stevenccherry@gmail.com">Email</a></li><li><a href="https://github.com/sccherry">Github</a></li><li><a href="https://codepen.io/sccherry">Codepen</a></li></ul>
+    <ul class="list-none pl-0 flex">
+      <li><a href="/feed.xml" class="hover:text-rss focus:text-rss">Feed</a></li>
+      <li class="ml-3"><a href="mailto:stevenccherry@gmail.com">Email</a></li><li class="ml-3"><a href="https://github.com/sccherry" class="hover:text-github focus:text-github">Github</a></li><li class="ml-3"><a href="https://codepen.io/sccherry" class="hover:text-codepen focus:text-codepen">Codepen</a></li></ul>
   </footer>
 
   <script src="/js/pjax.js" defer></script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>

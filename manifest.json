@@ -1,17 +1,17 @@
 {
   "name": "Cherry on Top",
-  "short_name": "Cherry",
-  "description": "The online home of Steve Cherry.",
+  "short_name": "Cherry on Top",
+  "description": "The online home of Steve Cherry",
   "start_url": "./",
   "display": "minimal-ui",
   "icons": [
     {
-      "src": "./assets/android-chrome-192x192.png",
+      "src": "/assets/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./assets/android-chrome-512x512.png",
+      "src": "/assets/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
