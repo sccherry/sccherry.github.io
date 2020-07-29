@@ -92,6 +92,185 @@
   </entry>
   
   <entry>
+    <title>Frequency bar graph (with Vue, D3, and Rxjs)</title>
+    <link href="https://stevecherry.net/posts/2017/10/02/spectrogram/"/>
+    <updated>2017-10-02T00:00:00-00:00</updated>
+    <id>https://stevecherry.net/posts/2017/10/02/spectrogram/</id>
+    <content type="html">
+
+
+      &lt;div data-height=&quot;265&quot; data-default-tab=&quot;js,result&quot; data-prefill=&quot;{&amp;quot;title&amp;quot;:&amp;quot;Frequency bar graph (with Vue, D3, and Rxjs)&amp;quot;,&amp;quot;tags&amp;quot;:[],&amp;quot;scripts&amp;quot;:[&amp;quot;https://unpkg.com/vue@2.4.4/dist/vue.min.js&amp;quot;,&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js&amp;quot;,&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.min.js&amp;quot;],&amp;quot;stylesheets&amp;quot;:[]}&quot;&gt;
+        
+&lt;pre data-lang=&quot;html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;
+  &amp;lt;bar-chart width=&amp;quot;960&amp;quot; height=&amp;quot;600&amp;quot; :data=&amp;quot;frequencies&amp;quot;&amp;gt;&amp;lt;/bar-chart&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;template id=&amp;quot;bar-chart&amp;quot;&amp;gt;
+  &amp;lt;svg :view-box.camel=&amp;quot;viewBox&amp;quot;&amp;gt;
+    &amp;lt;rect v-for=&amp;quot;bar in bars&amp;quot; v-bind=&amp;quot;bar&amp;quot;&amp;gt;&amp;lt;/rect&amp;gt;
+  &amp;lt;/svg&amp;gt;
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre data-lang=&quot;css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;:root {
+  background-color: black;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  flex: 1;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre data-lang=&quot;babel&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;/**
+ * Global variables
+ */
+
+const MIN_FREQ = 20;
+const MAX_FREQ = 6000;
+const NUM_BARS = 32;
+const FFT_SIZE = 1024 * 8;
+const CONTEXT = new AudioContext();
+
+/**
+ * Utility functions
+ */
+
+const average = list =&gt; list.reduce((x, y) =&gt; x + y) / list.length;
+
+const nToFreq = d3.scalePow()
+  .exponent(2)
+  .domain([0, NUM_BARS])
+  .range([MIN_FREQ, MAX_FREQ]);
+
+const freqToBin = d3.scaleLinear()
+  .domain([0, CONTEXT.sampleRate / 2])
+  .range([0, FFT_SIZE / 2]);
+
+const BIN_LOWER = Math.floor(freqToBin(MIN_FREQ));
+const BIN_UPPER = Math.floor(freqToBin(MAX_FREQ));
+
+// Use a power scale to group bins into equal pitch ranges
+const nToBin = n =&gt; Math.floor(freqToBin(nToFreq(n)) - BIN_LOWER);
+
+const aggregate = (data, num) =&gt; {
+  return new Uint8Array(num).map((_, i) =&gt; {
+    const lowerBound = Math.floor(nToBin(i));
+    const upperBound = Math.floor(nToBin(i + 1));
+
+    return average(data.slice(lowerBound, upperBound));
+  });
+};
+
+/**
+ * Vue
+ */
+
+const BarChart = {
+  template: &#39;#bar-chart&#39;,
+  props: [
+    &#39;data&#39;,
+    &#39;width&#39;,
+    &#39;height&#39;,
+  ],
+  computed: {
+    bars() {
+      const len = this.data.length;
+
+      const xScale = d3.scaleBand()
+        .domain(d3.range(len))
+        .rangeRound([0, this.width])
+        .paddingInner(0.05);
+
+      const yScale = d3.scaleLinear()
+        .range([0, this.height])
+        .domain([0, 255]); // TODO don&#39;t hardcode this value
+
+      return Array.from(this.data).map((d, i) =&gt; {
+        return {
+          x: xScale(i),
+          y: this.height - yScale(d),
+          width: xScale.bandwidth(),
+          height: yScale(d),
+          fill: d3.interpolateRainbow(i / len),
+        };
+      });
+    },
+    viewBox() {
+      return `0 0 ${this.width} ${this.height}`;
+    },
+  }
+};
+
+/**
+ * Audio
+ */
+
+const analyser = CONTEXT.createAnalyser();
+
+analyser.fftSize = FFT_SIZE;
+
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+const microphone = Rx.Observable.of(navigator)
+  .flatMap(nav =&gt; nav.mediaDevices.getUserMedia({ audio: true, video: false }));
+
+const mediaStream = microphone.map(stream =&gt; CONTEXT.createMediaStreamSource(stream))
+  .do(source =&gt; source.connect(analyser));
+
+const animationFrame = Rx.Observable.interval(0, Rx.Scheduler.animationFrame);
+
+const frequencyData = animationFrame.withLatestFrom(mediaStream).map(([frame, source]) =&gt; {
+  analyser.getByteFrequencyData(dataArray);
+
+  return aggregate(dataArray.slice(BIN_LOWER, BIN_UPPER), NUM_BARS);
+});
+
+/**
+ * App
+ */
+
+const vm = new Vue({
+  el: &#39;#app&#39;,
+  data: {
+    frequencies: [],
+  },
+  components: {
+    &#39;bar-chart&#39;: BarChart,
+  },
+});
+
+frequencyData.subscribe(data =&gt; {
+  vm.frequencies = data;
+});&lt;/code&gt;&lt;/pre&gt;
+
+      &lt;/div&gt;
+      &lt;script async=&quot;&quot; src=&quot;https://unpkg.com/prismjs@1.20.0/prism.js&quot;&gt;&lt;/script&gt;
+      &lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+      // Loop over all elements with the &#39;data-prefill&#39; attribute
+      Array.from(document.querySelectorAll(&#39;[data-prefill]&#39;), (el) =&gt; {
+        // Create a Click to Run button
+        const button = document.createElement(&#39;button&#39;);
+        button.innerHTML = &#39;Click to Run&#39;;
+        button.setAttribute(&#39;class&#39;, &#39;prefill-click-to-run&#39;);
+        button.classList.add(&#39;bg-transparent&#39;, &#39;border&#39;, &#39;border-primary&#39;, &#39;border-solid&#39;, &#39;hover:bg-primary&#39;, &#39;hover:text-white&#39;, &#39;p-2&#39;, &#39;text-primary&#39;, &#39;w-full&#39;);
+        el.appendChild(button);
+
+        // On click, the element will become the embed!
+        button.addEventListener(&#39;click&#39;, () =&gt; {
+          el.classList.add(&#39;codepen&#39;); // Add the codepen class back.
+          window.__CPEmbed(); // Trigger the CodePen embed script to run again.
+        });
+      });
+      &lt;/script&gt;
+    
+</content>
+  </entry>
+  
+  <entry>
     <title>Hello World!</title>
     <link href="https://stevecherry.net/posts/2011/01/23/hello-world/"/>
     <updated>2011-01-23T00:00:00-00:00</updated>
