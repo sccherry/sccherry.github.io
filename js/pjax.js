@@ -70,11 +70,11 @@
   function onClick(e) {
     var target = e.target;
 
-    while (target.tagName && target.tagName !== "A") {
+    while (target && target.tagName && target.tagName !== 'A') {
       target = target.parentNode;
     }
 
-    if (target !== document) {
+    if (target && target !== document) {
       if (shouldRouteChange(target.pathname, target.origin)) {
         window.history.pushState(null, null, target.pathname);
         render(target.pathname);

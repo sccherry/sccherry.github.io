@@ -127,10 +127,6 @@ const onActivate = e => {
 const onFetch = e => {
   const request = e.request;
 
-  if (!shouldHandleFetch(request)) {
-    return;
-  }
-
   const key = getCacheKey(request);
 
   if (key === CONTENT_CACHE) {
@@ -157,5 +153,9 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  if (!shouldHandleFetch(e.request)) {
+    return;
+  }
+
   e.respondWith(onFetch(e));
 });
