@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Frequency bar graph (with Vue, D3, and Rxjs) | Cherry on Top</title>
-  <meta name="description" content="Frequency bar graph (with Vue, D3, and Rxjs) October 2, 2017 &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;bar-chart width=&amp;quot;960&amp;quot; height=&amp;quot;600&amp;quot;...">
+  <meta name="description" content="Frequency bar graph (with Vue, D3, and Rxjs) October 2, 2017 &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;p&amp;gt;Click document to start&amp;lt;/p&amp;gt; &amp;lt;bar-chart...">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
   <link rel="apple-touch-startup-image" href="/assets/android-chrome-192x192.png">
@@ -52,6 +52,7 @@
       <div data-default-tab="js,result" data-prefill='{"title":"Frequency bar graph (with Vue, D3, and Rxjs)","tags":[],"scripts":["https://unpkg.com/vue@2.4.4/dist/vue.min.js","https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js","https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.min.js"],"stylesheets":[]}'>
         
 <pre data-lang="html"><code class="language-html">&lt;div id=&quot;app&quot;&gt;
+  &lt;p&gt;Click document to start&lt;/p&gt;
   &lt;bar-chart width=&quot;960&quot; height=&quot;600&quot; :data=&quot;frequencies&quot;&gt;&lt;/bar-chart&gt;
 &lt;/div&gt;
 
@@ -61,7 +62,7 @@
   &lt;/svg&gt;
 &lt;/template&gt;
 </code></pre>
-<pre data-lang="css"><code class="language-css">:root {
+<pre data-lang="css"><code class="language-css">html {
   background-color: black;
 }
 
@@ -69,6 +70,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  color: white;
+  text-align: center;
 }
 
 #app {
@@ -194,7 +200,15 @@ const vm = new Vue({
 
 frequencyData.subscribe(data => {
   vm.frequencies = data;
-});</code></pre>
+}, err => console.warn(err.message));
+
+function resumeAudioContext() {
+  CONTEXT.resume().then(() => {
+    document.removeEventListener('click', resumeAudioContext);
+  });
+}
+
+document.addEventListener('click', resumeAudioContext);</code></pre>
 
       </div>
       <script async src="/js/prism.js"></script>
