@@ -1,22 +1,17 @@
-(function() {
-  "use strict";
-
+(function pjax() {
   /**
    * XMLHttpRequest utility function
    */
 
   function get(href, onSuccess) {
-    var request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
 
-    request.open("GET", href);
+    request.open('GET', href);
 
-    request.responseType = "document";
+    request.responseType = 'document';
 
-    request.onreadystatechange = function() {
-      if (
-        request.readyState === XMLHttpRequest.DONE &&
-        request.status === 200
-      ) {
+    request.onreadystatechange = function readyState() {
+      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
         onSuccess(request.response);
       }
     };
@@ -29,22 +24,23 @@
    */
 
   function render(pathname) {
-    var router = document.querySelector("body"),
-      title = document.querySelector("title"),
-      description = document.querySelector("meta[name=description]"),
-      canonical = document.querySelector("link[rel=canonical]"),
-      view = document.querySelector("main");
+    const router = document.querySelector('body');
+    const title = document.querySelector('title');
+    const description = document.querySelector('meta[name=description]');
+    const canonical = document.querySelector('link[rel=canonical]');
+    const view = document.querySelector('main');
 
-    router.classList.add("is-loading");
+    router.classList.add('is-loading');
 
-    get(pathname, function(response) {
-      title.textContent = response.querySelector("title").textContent;
-      description.textContent = response.querySelector(
-        "meta[name=description]"
-      ).textContent;
-      canonical.setAttribute('href', response.querySelector("link[rel=canonical]").getAttribute('href'));
-      view.innerHTML = response.querySelector("main").innerHTML;
-      router.classList.remove("is-loading");
+    get(pathname, function update(response) {
+      title.textContent = response.querySelector('title').textContent;
+      description.textContent = response.querySelector('meta[name=description]').textContent;
+      canonical.setAttribute(
+        'href',
+        response.querySelector('link[rel=canonical]').getAttribute('href')
+      );
+      view.innerHTML = response.querySelector('main').innerHTML;
+      router.classList.remove('is-loading');
     });
   }
 
@@ -57,8 +53,8 @@
       // Same origin
       origin === window.location.origin,
       // Not assets
-      pathname.search(/\.(xml|css|js|png|jpg|svg)/) === -1
-    ].reduce(function(prev, curr) {
+      pathname.search(/\.(xml|css|js|png|jpg|svg)/) === -1,
+    ].reduce(function both(prev, curr) {
       return prev && curr;
     });
   }
@@ -68,7 +64,7 @@
    */
 
   function onClick(e) {
-    var target = e.target;
+    let { target } = e;
 
     while (target && target.tagName && target.tagName !== 'A') {
       target = target.parentNode;
@@ -87,6 +83,6 @@
     render(e.target.location);
   }
 
-  document.addEventListener("click", onClick);
-  window.addEventListener("popstate", onPopstate);
+  document.addEventListener('click', onClick);
+  window.addEventListener('popstate', onPopstate);
 })();

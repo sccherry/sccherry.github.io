@@ -26,16 +26,18 @@ const STATIC_ASSETS = [
  * Utility functions
  */
 
-const cacheName = key => {
+const cacheName = (key) => {
   return `${CACHE_VERSION}-${key}`;
 };
 
-const getCacheKey = request => {
+const getCacheKey = (request) => {
   const acceptHeader = request.headers.get('Accept');
 
   if (acceptHeader.indexOf('text/html') !== -1) {
     return CONTENT_CACHE;
-  } else if (acceptHeader.indexOf('image') !== -1) {
+  }
+
+  if (acceptHeader.indexOf('image') !== -1) {
     return MEDIA_CACHE;
   }
 
@@ -51,7 +53,7 @@ const shouldHandleFetch = (request) => {
   };
 
   return Object.keys(criteria)
-    .map(key => criteria[key])
+    .map((key) => criteria[key])
     .reduce((acc, curr) => acc && curr);
 };
 
@@ -60,7 +62,7 @@ const addToCache = (key, request, response) => {
     const req = request.clone();
     const res = response.clone();
 
-    caches.open(cacheName(key)).then(cache => {
+    caches.open(cacheName(key)).then((cache) => {
       cache.put(req, res);
     });
   }
@@ -71,29 +73,31 @@ const addToCache = (key, request, response) => {
 const fetchFromNetwork = (key, request) => {
   const req = request.clone();
 
-  return fetch(req)
-    .then(response => addToCache(key, request, response));
+  return fetch(req).then((response) => addToCache(key, request, response));
 };
 
 const fetchFromCache = (key, request) => {
   const req = request.clone();
 
-  return caches.open(cacheName(key))
-    .then(cache => {
-      return cache.match(req).then(response => {
+  return caches
+    .open(cacheName(key))
+    .then((cache) => {
+      return cache.match(req).then((response) => {
         fetchFromNetwork(key, request);
 
         return response;
       });
     })
-    .then(response => response || Promise.reject('no-match'));
+    .then((response) => response || Promise.reject('no-match'));
 };
 
-const offlineResponse = key => {
+const offlineResponse = (key) => {
   if (key === MEDIA_CACHE) {
-    return caches.match(OFFLINE[image]);
-  } else if (key === CONTENT_CACHE) {
-    return caches.match(OFFLINE[page]);
+    return caches.match(OFFLINE.image);
+  }
+
+  if (key === CONTENT_CACHE) {
+    return caches.match(OFFLINE.page);
   }
 
   return undefined;
@@ -103,8 +107,8 @@ const offlineResponse = key => {
  * Install event
  */
 
-const onInstall = e => {
-  return caches.open(cacheName(STATIC_CACHE)).then(cache => {
+const onInstall = () => {
+  return caches.open(cacheName(STATIC_CACHE)).then((cache) => {
     return cache.addAll(STATIC_ASSETS);
   });
 };
@@ -113,20 +117,21 @@ const onInstall = e => {
  * Activate event
  */
 
-const onActivate = e => {
-  return caches.keys().then(keys => Promise.all(
-    keys.filter(key => key.indexOf(CACHE_VERSION) !== 0)
-      .map(key => caches.delete(key))
-  ));
+const onActivate = () => {
+  return caches
+    .keys()
+    .then((keys) =>
+      Promise.all(
+        keys.filter((key) => key.indexOf(CACHE_VERSION) !== 0).map((key) => caches.delete(key))
+      )
+    );
 };
 
 /**
  * Fetch event
  */
 
-const onFetch = e => {
-  const request = e.request;
-
+const onFetch = ({ request }) => {
   const key = getCacheKey(request);
 
   if (key === CONTENT_CACHE) {
@@ -144,15 +149,15 @@ const onFetch = e => {
  * Event listeners
  */
 
-self.addEventListener('install', e => {
+self.addEventListener('install', (e) => {
   e.waitUntil(onInstall(e).then(() => self.skipWaiting()));
 });
 
-self.addEventListener('activate', e => {
+self.addEventListener('activate', (e) => {
   e.waitUntil(onActivate(e).then(() => self.clients.claim()));
 });
 
-self.addEventListener('fetch', e => {
+self.addEventListener('fetch', (e) => {
   if (!shouldHandleFetch(e.request)) {
     return;
   }
