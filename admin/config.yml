@@ -2,8 +2,7 @@ backend:
   name: github
   repo: sccherry/sccherry.github.io # Path to your GitHub repository
   branch: develop
-  # site_domain: stupefied-hugle-e54390.netlify.com
-  # site_domain: cms.netlify.com
+  site_domain: stupefied-hugle-e54390.netlify.com
 publish_mode: editorial_workflow
 media_folder: 'src/assets/uploads' # Media files will be stored in the repo under static/images/uploads
 public_folder: '/assets/uploads' # The src attribute for uploaded media will begin with /images/uploads
