@@ -32,6 +32,17 @@
   
     
     <entry>
+      <title>Theremin (with Rxjs and Ramda)</title>
+      <link href="https://stevecherry.net/code/2020/08/21/theremin-with-rxjs-and-ramda/"/>
+      <updated>2017-10-02T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/code/2020/08/21/theremin-with-rxjs-and-ramda/</id>
+      <content type="html">&lt;p&gt;Drag cursor to begin playing&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/&quot;&gt;https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+  
+    
+    <entry>
       <title>Progressively enhanced app-like page transitions</title>
       <link href="https://stevecherry.net/posts/2018-06-03-progressively-enhanced-app-like-page-transitions/"/>
       <updated>2018-06-03T00:00:00-00:00</updated>
