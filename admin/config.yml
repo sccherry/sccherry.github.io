@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: sccherry/sccherry.github.io # Path to your GitHub repository
+  branch: develop
+publish_mode: editorial_workflow
+media_folder: 'src/assets/uploads' # Media files will be stored in the repo under static/images/uploads
+public_folder: '/assets/uploads' # The src attribute for uploaded media will begin with /images/uploads
+collections:
+  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
+    label: 'Posts' # Used in the UI
+    folder: 'src/posts' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}/{{month}}/{{day}}/{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post.njk' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'code' # Used in routes, e.g., /admin/collections/blog
+    label: 'Code' # Used in the UI
+    folder: 'src/code' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}/{{month}}/{{day}}/{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    editor:
+      preview: false
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'code.njk' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'HTML',
+          name: 'html',
+          widget: 'code',
+          default_language: 'html',
+          allow_language_selection: false,
+        }
+      - {
+          label: 'Styles',
+          name: 'stylesheets',
+          widget: 'list',
+          field: { label: 'URL', name: 'url', widget: 'string' },
+        }
+      - {
+          label: 'CSS',
+          name: 'css',
+          widget: 'code',
+          default_language: 'css',
+          allow_language_selection: false,
+        }
+      - {
+          label: 'Scripts',
+          name: 'scripts',
+          widget: 'list',
+          field: { label: 'URL', name: 'url', widget: 'string' },
+        }
+      - {
+          label: 'JavaScript',
+          name: 'js',
+          widget: 'code',
+          default_language: 'javascript',
+          allow_language_selection: false,
+        }

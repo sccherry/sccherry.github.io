@@ -4,68 +4,39 @@
   <subtitle>The online home of Steve Cherry</subtitle>
   <link href="https://stevecherry.net/feed.xml" rel="self"/>
   <link href="https://stevecherry.net"/>
-  <updated>2011-01-23T00:00:00-00:00</updated>
+  <updated>2019-10-09T00:00:00-00:00</updated>
   <id>https://stevecherry.net</id>
   <author>
     <name>Steve Cherry</name>
     <email>stevenccherry@gmail.com</email>
   </author>
   
-  <entry>
-    <title>Debugging Drupal in VS Code</title>
-    <link href="https://stevecherry.net/posts/2019/10/09/vscode-debugging/"/>
-    <updated>2019-10-09T00:00:00-00:00</updated>
-    <id>https://stevecherry.net/posts/2019/10/09/vscode-debugging/</id>
-    <content type="html">&lt;p&gt;I use &lt;a href=&quot;https://github.com/wodby/docker4drupal&quot;&gt;docker4drupal&lt;/a&gt;, the &lt;a href=&quot;https://github.com/drupal-composer/drupal-project&quot;&gt;Drupal Composer template&lt;/a&gt;, and VS Code for my local Drupal development. Below is a description of how to configure VS Code’s debugging tools to work with this setup.&lt;/p&gt;
-&lt;h3&gt;PHP&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Install the &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug&quot;&gt;PHP Debug extension&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;In the debugging panel add configuration for PHP.&lt;/li&gt;
-&lt;li&gt;Edit the “Listen for XDebug” configuration by adding &lt;code&gt;&amp;quot;pathMappings&amp;quot;: { &amp;quot;/var/www/html&amp;quot;: &amp;quot;${workspaceRoot}&amp;quot; }&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;In &lt;code&gt;docker-compose.yml&lt;/code&gt; file uncomment &lt;code&gt;PHP_XDEBUG&lt;/code&gt;, &lt;code&gt;PHP_XDEBUG_DEFAULT_ENABLE&lt;/code&gt;, &lt;code&gt;PHP_XDEBUG_REMOTE_CONNECT_BACK&lt;/code&gt;, and &lt;code&gt;PHP_XDEBUG_REMOTE_HOST&lt;/code&gt; (whichever line applies to your environment).&lt;/li&gt;
-&lt;li&gt;Install &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/&quot;&gt;Xdebug helper for Firefox&lt;/a&gt; and/or &lt;a href=&quot;https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc&quot;&gt;XDebug helper for Chrome&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;JavaScript&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Install the &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug&quot;&gt;Debugger for Firefox&lt;/a&gt; and/or &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome&quot;&gt;Debugger for Chrome&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;In the debugging panel add “launch” configuration for Firefox and/or Chrome debuggers.&lt;/li&gt;
-&lt;li&gt;Edit the configuration by adding &lt;code&gt;&amp;quot;webRoot&amp;quot;: &amp;quot;\${workspaceFolder}/web&amp;quot;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I create a gist to display the complete configuration file:&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/sccherry/3338e8855387e489b1bf97553348bde6.js&quot;&gt;&lt;/script&gt;
+    
+    <entry>
+      <title>Hello World!</title>
+      <link href="https://stevecherry.net/posts/2011/01/23/hello-world/"/>
+      <updated>2011-01-23T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/posts/2011/01/23/hello-world/</id>
+      <content type="html">&lt;p&gt;Hello and welcome to my blog. I don’t know what this will be like or what I might post. Probably a bit of everything, but with a decided lack of frequency.&lt;/p&gt;
 </content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title>What closes a Github ticket?</title>
-    <link href="https://stevecherry.net/posts/2019/10/07/close-github-tickets/"/>
-    <updated>2019-10-07T00:00:00-00:00</updated>
-    <id>https://stevecherry.net/posts/2019/10/07/close-github-tickets/</id>
-    <content type="html">&lt;p&gt;Github provides useful functionality to &lt;a href=&quot;https://help.github.com/en/articles/closing-issues-using-keywords&quot;&gt;automatically close tickets&lt;/a&gt; using keywords that reference the ticket number. But where can you add those references? I dug in to find out.&lt;/p&gt;
-&lt;p&gt;This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the &lt;a href=&quot;https://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;git-flow model&lt;/a&gt; for our workflow, merging pull requests into a &lt;code&gt;develop&lt;/code&gt; branch and waiting to merge to the &lt;code&gt;master&lt;/code&gt; branch until we start a new deployment. Github assumes a &lt;abbr title=&quot;pull request&quot;&gt;PR&lt;/abbr&gt; will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.&lt;/p&gt;
-&lt;p&gt;I added keywords in 3 places:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The pull request description.&lt;/li&gt;
-&lt;li&gt;A comment on the pull request.&lt;/li&gt;
-&lt;li&gt;In a Git commit message that is part of the pull request.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I did the above 3 for the following 2 workflows (for a total of 6 tests):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Pull request merges directly into master.&lt;/li&gt;
-&lt;li&gt;Pull request first merges into a develop branch, then another &lt;abbr title=&quot;pull request&quot;&gt;PR&lt;/abbr&gt; merges into master.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When merging a pull request directly into &lt;code&gt;master&lt;/code&gt; tickets will automatically close if the keyword is in the pull request description (#1) or the commit message (#3). When merging first into &lt;code&gt;develop&lt;/code&gt;, only a keyword in a commit message (#3) will close the ticket.&lt;/p&gt;
-&lt;p&gt;You can see my work in the &lt;a href=&quot;https://github.com/sccherry/close-ticket-test&quot;&gt;Github repository&lt;/a&gt; I used for these tests.&lt;/p&gt;
-&lt;p&gt;So, if you have a workflow that uses separate &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;develop&lt;/code&gt; branches, including the keywords in the commit messages is the best way to ensure that tickets will be closed automatically.&lt;/p&gt;
-</content>
-  </entry>
+    
+    <entry>
+      <title>Frequency bar graph (with Vue, D3, and Rxjs)</title>
+      <link href="https://stevecherry.net/code/2017/10/02/frequency-bar-graph-with-vue-d3-and-rxjs/"/>
+      <updated>2017-10-02T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/code/2017/10/02/frequency-bar-graph-with-vue-d3-and-rxjs/</id>
+      <content type="html"></content>
+    </entry>
   
-  <entry>
-    <title>Progressively enhanced app-like page transitions</title>
-    <link href="https://stevecherry.net/posts/2018/06/03/pjax-transitions/"/>
-    <updated>2018-06-03T00:00:00-00:00</updated>
-    <id>https://stevecherry.net/posts/2018/06/03/pjax-transitions/</id>
-    <content type="html">&lt;p&gt;Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it’s also possible to design those engaging animations using the HTML you already have?&lt;/p&gt;
+    
+    <entry>
+      <title>Progressively enhanced app-like page transitions</title>
+      <link href="https://stevecherry.net/posts/2018/06/03/progressively-enhanced-app-like-page-transitions/"/>
+      <updated>2018-06-03T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/posts/2018/06/03/progressively-enhanced-app-like-page-transitions/</id>
+      <content type="html">&lt;p&gt;Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it’s also possible to design those engaging animations using the HTML you already have?&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://sarahdrasnerdesign.com/&quot;&gt;Sarah Drasner’s&lt;/a&gt; article about &lt;a href=&quot;https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/&quot;&gt;native-like animations on the web&lt;/a&gt; demonstrates it’s possible to emulate the smooth page transitions so often found on native apps. Using &lt;a href=&quot;https://nuxtjs.org/&quot;&gt;nuxt.js&lt;/a&gt;, she created a really neat demo travel site.&lt;/p&gt;
 &lt;p&gt;The demo made heavy use of Vue’s &lt;code&gt;transition&lt;/code&gt; and &lt;code&gt;transition-group&lt;/code&gt; elements to handle the animations. It keeps the markup of the header the same between pages and applies transforms to make the page display differently. But what about site’s that aren’t currently using a single-page application framework or don’t have the resources to refactor their site? Is is possible to add the same functionality to a site that renders static HTML, using progressive enhancement techniques?&lt;/p&gt;
 &lt;p&gt;To find out I set myself the goal of recreating &lt;a href=&quot;https://page-transitions.com/&quot;&gt;her travel app demo&lt;/a&gt; without Vue. I decided to use &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; since I planned to host the site on Github. And if this technique could work on a simple static site, it could work anywhere.&lt;/p&gt;
@@ -89,207 +60,57 @@
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title>Frequency bar graph (with Vue, D3, and Rxjs)</title>
-    <link href="https://stevecherry.net/posts/2017/10/02/spectrogram/"/>
-    <updated>2017-10-02T00:00:00-00:00</updated>
-    <id>https://stevecherry.net/posts/2017/10/02/spectrogram/</id>
-    <content type="html">
-
-
-      &lt;div data-default-tab=&quot;js,result&quot; data-prefill=&quot;{&amp;quot;title&amp;quot;:&amp;quot;Frequency bar graph (with Vue, D3, and Rxjs)&amp;quot;,&amp;quot;tags&amp;quot;:[],&amp;quot;scripts&amp;quot;:[&amp;quot;https://unpkg.com/vue@2.4.4/dist/vue.min.js&amp;quot;,&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js&amp;quot;,&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.3/Rx.min.js&amp;quot;],&amp;quot;stylesheets&amp;quot;:[]}&quot;&gt;
-        
-&lt;pre data-lang=&quot;html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;
-  &amp;lt;p&amp;gt;Click document to start&amp;lt;/p&amp;gt;
-  &amp;lt;bar-chart width=&amp;quot;960&amp;quot; height=&amp;quot;600&amp;quot; :data=&amp;quot;frequencies&amp;quot;&amp;gt;&amp;lt;/bar-chart&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;template id=&amp;quot;bar-chart&amp;quot;&amp;gt;
-  &amp;lt;svg :view-box.camel=&amp;quot;viewBox&amp;quot;&amp;gt;
-    &amp;lt;rect v-for=&amp;quot;bar in bars&amp;quot; v-bind=&amp;quot;bar&amp;quot;&amp;gt;&amp;lt;/rect&amp;gt;
-  &amp;lt;/svg&amp;gt;
-&amp;lt;/template&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre data-lang=&quot;css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;html {
-  background-color: black;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-p {
-  color: white;
-  text-align: center;
-}
-
-#app {
-  flex: 1;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre data-lang=&quot;babel&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;/**
- * Global variables
- */
-
-const MIN_FREQ = 20;
-const MAX_FREQ = 6000;
-const NUM_BARS = 32;
-const FFT_SIZE = 1024 * 8;
-const CONTEXT = new AudioContext();
-
-/**
- * Utility functions
- */
-
-const average = list =&gt; list.reduce((x, y) =&gt; x + y) / list.length;
-
-const nToFreq = d3.scalePow()
-  .exponent(2)
-  .domain([0, NUM_BARS])
-  .range([MIN_FREQ, MAX_FREQ]);
-
-const freqToBin = d3.scaleLinear()
-  .domain([0, CONTEXT.sampleRate / 2])
-  .range([0, FFT_SIZE / 2]);
-
-const BIN_LOWER = Math.floor(freqToBin(MIN_FREQ));
-const BIN_UPPER = Math.floor(freqToBin(MAX_FREQ));
-
-// Use a power scale to group bins into equal pitch ranges
-const nToBin = n =&gt; Math.floor(freqToBin(nToFreq(n)) - BIN_LOWER);
-
-const aggregate = (data, num) =&gt; {
-  return new Uint8Array(num).map((_, i) =&gt; {
-    const lowerBound = Math.floor(nToBin(i));
-    const upperBound = Math.floor(nToBin(i + 1));
-
-    return average(data.slice(lowerBound, upperBound));
-  });
-};
-
-/**
- * Vue
- */
-
-const BarChart = {
-  template: &#39;#bar-chart&#39;,
-  props: [
-    &#39;data&#39;,
-    &#39;width&#39;,
-    &#39;height&#39;,
-  ],
-  computed: {
-    bars() {
-      const len = this.data.length;
-
-      const xScale = d3.scaleBand()
-        .domain(d3.range(len))
-        .rangeRound([0, this.width])
-        .paddingInner(0.05);
-
-      const yScale = d3.scaleLinear()
-        .range([0, this.height])
-        .domain([0, 255]); // TODO don&#39;t hardcode this value
-
-      return Array.from(this.data).map((d, i) =&gt; {
-        return {
-          x: xScale(i),
-          y: this.height - yScale(d),
-          width: xScale.bandwidth(),
-          height: yScale(d),
-          fill: d3.interpolateRainbow(i / len),
-        };
-      });
-    },
-    viewBox() {
-      return `0 0 ${this.width} ${this.height}`;
-    },
-  }
-};
-
-/**
- * Audio
- */
-
-const analyser = CONTEXT.createAnalyser();
-
-analyser.fftSize = FFT_SIZE;
-
-const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-const microphone = Rx.Observable.of(navigator)
-  .flatMap(nav =&gt; nav.mediaDevices.getUserMedia({ audio: true, video: false }));
-
-const mediaStream = microphone.map(stream =&gt; CONTEXT.createMediaStreamSource(stream))
-  .do(source =&gt; source.connect(analyser));
-
-const animationFrame = Rx.Observable.interval(0, Rx.Scheduler.animationFrame);
-
-const frequencyData = animationFrame.withLatestFrom(mediaStream).map(([frame, source]) =&gt; {
-  analyser.getByteFrequencyData(dataArray);
-
-  return aggregate(dataArray.slice(BIN_LOWER, BIN_UPPER), NUM_BARS);
-});
-
-/**
- * App
- */
-
-const vm = new Vue({
-  el: &#39;#app&#39;,
-  data: {
-    frequencies: [],
-  },
-  components: {
-    &#39;bar-chart&#39;: BarChart,
-  },
-});
-
-frequencyData.subscribe(data =&gt; {
-  vm.frequencies = data;
-}, err =&gt; console.warn(err.message));
-
-function resumeAudioContext() {
-  CONTEXT.resume().then(() =&gt; {
-    document.removeEventListener(&#39;click&#39;, resumeAudioContext);
-  });
-}
-
-document.addEventListener(&#39;click&#39;, resumeAudioContext);&lt;/code&gt;&lt;/pre&gt;
-
-      &lt;/div&gt;
-      &lt;script async=&quot;&quot; src=&quot;https://stevecherry.net/js/prism.js&quot;&gt;&lt;/script&gt;
-      &lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-      &lt;script&gt;
-      // Loop over all elements with the &#39;data-prefill&#39; attribute
-      Array.from(document.querySelectorAll(&#39;[data-prefill]&#39;), (el) =&gt; {
-        // Create a Click to Run button
-        const button = document.createElement(&#39;button&#39;);
-        button.innerHTML = &#39;Click to Run&#39;;
-        button.setAttribute(&#39;class&#39;, &#39;prefill-click-to-run&#39;);
-        button.classList.add(&#39;bg-transparent&#39;, &#39;border&#39;, &#39;border-primary&#39;, &#39;border-solid&#39;, &#39;hover:bg-primary&#39;, &#39;hover:text-white&#39;, &#39;p-2&#39;, &#39;text-primary&#39;, &#39;w-full&#39;);
-        el.appendChild(button);
-
-        // On click, the element will become the embed!
-        button.addEventListener(&#39;click&#39;, () =&gt; {
-          el.classList.add(&#39;codepen&#39;); // Add the codepen class back.
-          window.__CPEmbed(); // Trigger the CodePen embed script to run again.
-        });
-      });
-      &lt;/script&gt;
     
+    <entry>
+      <title>What closes a Github ticket?</title>
+      <link href="https://stevecherry.net/posts/2019/10/07/what-closes-a-github-ticket/"/>
+      <updated>2019-10-07T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/posts/2019/10/07/what-closes-a-github-ticket/</id>
+      <content type="html">&lt;p&gt;Github provides useful functionality to &lt;a href=&quot;https://help.github.com/en/articles/closing-issues-using-keywords&quot;&gt;automatically close tickets&lt;/a&gt; using keywords that reference the ticket number. But where can you add those references? I dug in to find out.&lt;/p&gt;
+&lt;p&gt;This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the &lt;a href=&quot;https://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;git-flow model&lt;/a&gt; for our workflow, merging pull requests into a &lt;code&gt;develop&lt;/code&gt; branch and waiting to merge to the &lt;code&gt;master&lt;/code&gt; branch until we start a new deployment. Github assumes a &lt;abbr title=&quot;pull request&quot;&gt;PR&lt;/abbr&gt; will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.&lt;/p&gt;
+&lt;p&gt;I added keywords in 3 places:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The pull request description.&lt;/li&gt;
+&lt;li&gt;A comment on the pull request.&lt;/li&gt;
+&lt;li&gt;In a Git commit message that is part of the pull request.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I did the above 3 for the following 2 workflows (for a total of 6 tests):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pull request merges directly into master.&lt;/li&gt;
+&lt;li&gt;Pull request first merges into a develop branch, then another &lt;abbr title=&quot;pull request&quot;&gt;PR&lt;/abbr&gt; merges into master.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When merging a pull request directly into &lt;code&gt;master&lt;/code&gt; tickets will automatically close if the keyword is in the pull request description (#1) or the commit message (#3). When merging first into &lt;code&gt;develop&lt;/code&gt;, only a keyword in a commit message (#3) will close the ticket.&lt;/p&gt;
+&lt;p&gt;You can see my work in the &lt;a href=&quot;https://github.com/sccherry/close-ticket-test&quot;&gt;Github repository&lt;/a&gt; I used for these tests.&lt;/p&gt;
+&lt;p&gt;So, if you have a workflow that uses separate &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;develop&lt;/code&gt; branches, including the keywords in the commit messages is the best way to ensure that tickets will be closed automatically.&lt;/p&gt;
 </content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title>Hello World!</title>
-    <link href="https://stevecherry.net/posts/2011/01/23/hello-world/"/>
-    <updated>2011-01-23T00:00:00-00:00</updated>
-    <id>https://stevecherry.net/posts/2011/01/23/hello-world/</id>
-    <content type="html">&lt;p&gt;Hello and welcome to my blog. I don’t know what this will be like or what I might post. Probably a bit of everything, but with a decided lack of frequency.&lt;/p&gt;
+    
+    <entry>
+      <title>Debugging Drupal in VS Code</title>
+      <link href="https://stevecherry.net/posts/2019/10/09/debugging-drupal-in-vs-code/"/>
+      <updated>2019-10-09T00:00:00-00:00</updated>
+      <id>https://stevecherry.net/posts/2019/10/09/debugging-drupal-in-vs-code/</id>
+      <content type="html">&lt;p&gt;I use &lt;a href=&quot;https://github.com/wodby/docker4drupal&quot;&gt;docker4drupal&lt;/a&gt;, the &lt;a href=&quot;https://github.com/drupal-composer/drupal-project&quot;&gt;Drupal Composer template&lt;/a&gt;, and VS Code for my local Drupal development. Below is a description of how to configure VS Code’s debugging tools to work with this setup.&lt;/p&gt;
+&lt;h3&gt;PHP&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug&quot;&gt;PHP Debug extension&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;In the debugging panel add configuration for PHP.&lt;/li&gt;
+&lt;li&gt;Edit the “Listen for XDebug” configuration by adding &lt;code&gt;&amp;quot;pathMappings&amp;quot;: { &amp;quot;/var/www/html&amp;quot;: &amp;quot;${workspaceRoot}&amp;quot; }&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In &lt;code&gt;docker-compose.yml&lt;/code&gt; file uncomment &lt;code&gt;PHP_XDEBUG&lt;/code&gt;, &lt;code&gt;PHP_XDEBUG_DEFAULT_ENABLE&lt;/code&gt;, &lt;code&gt;PHP_XDEBUG_REMOTE_CONNECT_BACK&lt;/code&gt;, and &lt;code&gt;PHP_XDEBUG_REMOTE_HOST&lt;/code&gt; (whichever line applies to your environment).&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/xdebug-helper-for-firefox/&quot;&gt;Xdebug helper for Firefox&lt;/a&gt; and/or &lt;a href=&quot;https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc&quot;&gt;XDebug helper for Chrome&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;JavaScript&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug&quot;&gt;Debugger for Firefox&lt;/a&gt; and/or &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome&quot;&gt;Debugger for Chrome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;In the debugging panel add “launch” configuration for Firefox and/or Chrome debuggers.&lt;/li&gt;
+&lt;li&gt;Edit the configuration by adding &lt;code&gt;&amp;quot;webRoot&amp;quot;: &amp;quot;\${workspaceFolder}/web&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I create a gist to display the complete configuration file:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/sccherry/3338e8855387e489b1bf97553348bde6.js&quot;&gt;&lt;/script&gt;
 </content>
-  </entry>
+    </entry>
+  
 </feed>
