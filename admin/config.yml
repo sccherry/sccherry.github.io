@@ -18,6 +18,12 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - {
+          label: 'Permalink',
+          name: 'permalink',
+          widget: 'hidden',
+          default: 'posts/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/',
+        }
       - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
@@ -31,6 +37,12 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'code.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - {
+          label: 'Permalink',
+          name: 'permalink',
+          widget: 'hidden',
+          default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/',
+        }
       - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - {

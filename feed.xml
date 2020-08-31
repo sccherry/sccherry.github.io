@@ -14,9 +14,9 @@
     
     <entry>
       <title>Hello World!</title>
-      <link href="https://stevecherry.net/posts/2011-01-23-hello-world/"/>
+      <link href="https://stevecherry.net/posts/2011/01/23/hello-world/"/>
       <updated>2011-01-23T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/posts/2011-01-23-hello-world/</id>
+      <id>https://stevecherry.net/posts/2011/01/23/hello-world/</id>
       <content type="html">&lt;p&gt;Hello and welcome to my blog. I don’t know what this will be like or what I might post. Probably a bit of everything, but with a decided lack of frequency.&lt;/p&gt;
 </content>
     </entry>
@@ -24,18 +24,18 @@
     
     <entry>
       <title>Frequency bar graph (with Vue, D3, and Rxjs)</title>
-      <link href="https://stevecherry.net/code/2017-10-02-frequency-bar-graph-with-vue-d3-and-rxjs/"/>
+      <link href="https://stevecherry.net/code/2017/10/02/frequency-bar-graph-with-vue-d3-and-rxjs/"/>
       <updated>2017-10-02T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/code/2017-10-02-frequency-bar-graph-with-vue-d3-and-rxjs/</id>
+      <id>https://stevecherry.net/code/2017/10/02/frequency-bar-graph-with-vue-d3-and-rxjs/</id>
       <content type="html"></content>
     </entry>
   
     
     <entry>
       <title>Theremin (with Rxjs and Ramda)</title>
-      <link href="https://stevecherry.net/code/2020/08/21/theremin-with-rxjs-and-ramda/"/>
+      <link href="https://stevecherry.net/code/2017/10/02/theremin-with-rxjs-and-ramda/"/>
       <updated>2017-10-02T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/code/2020/08/21/theremin-with-rxjs-and-ramda/</id>
+      <id>https://stevecherry.net/code/2017/10/02/theremin-with-rxjs-and-ramda/</id>
       <content type="html">&lt;p&gt;Drag cursor to begin playing&lt;/p&gt;
 &lt;p&gt;See &lt;a href=&quot;https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/&quot;&gt;https://www.smashingmagazine.com/2016/06/make-music-in-the-browser-with-a-web-audio-theremin/&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -44,9 +44,9 @@
     
     <entry>
       <title>Progressively enhanced app-like page transitions</title>
-      <link href="https://stevecherry.net/posts/2018-06-03-progressively-enhanced-app-like-page-transitions/"/>
+      <link href="https://stevecherry.net/posts/2018/06/03/progressively-enhanced-app-like-page-transitions/"/>
       <updated>2018-06-03T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/posts/2018-06-03-progressively-enhanced-app-like-page-transitions/</id>
+      <id>https://stevecherry.net/posts/2018/06/03/progressively-enhanced-app-like-page-transitions/</id>
       <content type="html">&lt;p&gt;Many native apps effectively use page transitions to improve user experience/engagement. When replicating those same transitions on the web one might reach for a single-page application framework like React or Vue. But did you know it’s also possible to design those engaging animations using the HTML you already have?&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://sarahdrasnerdesign.com/&quot;&gt;Sarah Drasner’s&lt;/a&gt; article about &lt;a href=&quot;https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web/&quot;&gt;native-like animations on the web&lt;/a&gt; demonstrates it’s possible to emulate the smooth page transitions so often found on native apps. Using &lt;a href=&quot;https://nuxtjs.org/&quot;&gt;nuxt.js&lt;/a&gt;, she created a really neat demo travel site.&lt;/p&gt;
 &lt;p&gt;The demo made heavy use of Vue’s &lt;code&gt;transition&lt;/code&gt; and &lt;code&gt;transition-group&lt;/code&gt; elements to handle the animations. It keeps the markup of the header the same between pages and applies transforms to make the page display differently. But what about site’s that aren’t currently using a single-page application framework or don’t have the resources to refactor their site? Is is possible to add the same functionality to a site that renders static HTML, using progressive enhancement techniques?&lt;/p&gt;
@@ -76,9 +76,9 @@
     
     <entry>
       <title>What closes a Github ticket?</title>
-      <link href="https://stevecherry.net/posts/2019-10-07-what-closes-a-github-ticket/"/>
+      <link href="https://stevecherry.net/posts/2019/10/07/what-closes-a-github-ticket/"/>
       <updated>2019-10-07T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/posts/2019-10-07-what-closes-a-github-ticket/</id>
+      <id>https://stevecherry.net/posts/2019/10/07/what-closes-a-github-ticket/</id>
       <content type="html">&lt;p&gt;Github provides useful functionality to &lt;a href=&quot;https://help.github.com/en/articles/closing-issues-using-keywords&quot;&gt;automatically close tickets&lt;/a&gt; using keywords that reference the ticket number. But where can you add those references? I dug in to find out.&lt;/p&gt;
 &lt;p&gt;This question came about my work when we recently did a release in which none of the tickets we fixed were closed. We use the &lt;a href=&quot;https://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;git-flow model&lt;/a&gt; for our workflow, merging pull requests into a &lt;code&gt;develop&lt;/code&gt; branch and waiting to merge to the &lt;code&gt;master&lt;/code&gt; branch until we start a new deployment. Github assumes a &lt;abbr title=&quot;pull request&quot;&gt;PR&lt;/abbr&gt; will get merged directly into the main branch. So, I did some research to determine which scenarios would actually close tickets.&lt;/p&gt;
 &lt;p&gt;I added keywords in 3 places:&lt;/p&gt;
@@ -101,9 +101,9 @@
     
     <entry>
       <title>Debugging Drupal in VS Code</title>
-      <link href="https://stevecherry.net/posts/2019-10-09-debugging-drupal-in-vs-code/"/>
+      <link href="https://stevecherry.net/posts/2019/10/09/debugging-drupal-in-vs-code/"/>
       <updated>2019-10-09T00:00:00-00:00</updated>
-      <id>https://stevecherry.net/posts/2019-10-09-debugging-drupal-in-vs-code/</id>
+      <id>https://stevecherry.net/posts/2019/10/09/debugging-drupal-in-vs-code/</id>
       <content type="html">&lt;p&gt;I use &lt;a href=&quot;https://github.com/wodby/docker4drupal&quot;&gt;docker4drupal&lt;/a&gt;, the &lt;a href=&quot;https://github.com/drupal-composer/drupal-project&quot;&gt;Drupal Composer template&lt;/a&gt;, and VS Code for my local Drupal development. Below is a description of how to configure VS Code’s debugging tools to work with this setup.&lt;/p&gt;
 &lt;h3&gt;PHP&lt;/h3&gt;
 &lt;ol&gt;
