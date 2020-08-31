@@ -2,11 +2,42 @@ backend:
   name: github
   repo: sccherry/sccherry.github.io # Path to your GitHub repository
   branch: develop
-  site_domain: stupefied-hugle-e54390.netlify.com
+  site_domain: sccherry.netlify.com
 publish_mode: editorial_workflow
 media_folder: 'src/assets' # Media files will be stored in the repo under static/images/uploads
 public_folder: '/assets' # The src attribute for uploaded media will begin with /images/uploads
 collections:
+  - name: 'pages'
+    label: 'Pages'
+    editor:
+      preview: false
+    files:
+      - name: 'about'
+        label: 'About'
+        file: 'src/about.md'
+        fields:
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page.njk' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Navigation'
+            name: 'eleventyNavigation'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - { label: 'Key', name: 'key', type: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - name: 'resume'
+        label: 'Résumé'
+        file: 'src/resume.md'
+        fields:
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page.njk' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Navigation'
+            name: 'eleventyNavigation'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - { label: 'Key', name: 'key', type: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'posts' # Used in routes, e.g., /admin/collections/blog
     label: 'Posts' # Used in the UI
     folder: 'src/posts' # The path to the folder where the documents are stored

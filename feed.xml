@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Cherry on Top</title>
-  <subtitle>The online home of Steve Cherry</subtitle>
+  <subtitle>The online home of Steve Cherry.</subtitle>
   <link href="https://stevecherry.net/feed.xml" rel="self"/>
   <link href="https://stevecherry.net"/>
   <updated>2019-10-09T00:00:00-00:00</updated>
@@ -13,7 +13,7 @@
   
     
     <entry>
-      <title>Hello World!</title>
+      <title>Hello World</title>
       <link href="https://stevecherry.net/posts/2011/01/23/hello-world/"/>
       <updated>2011-01-23T00:00:00-00:00</updated>
       <id>https://stevecherry.net/posts/2011/01/23/hello-world/</id>

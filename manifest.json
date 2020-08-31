@@ -1,7 +1,7 @@
 {
   "name": "Cherry on Top",
   "short_name": "Cherry on Top",
-  "description": "The online home of Steve Cherry",
+  "description": "The online home of Steve Cherry.",
   "start_url": "./",
   "display": "minimal-ui",
   "icons": [
