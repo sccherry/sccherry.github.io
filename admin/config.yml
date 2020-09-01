@@ -6,6 +6,7 @@ backend:
 publish_mode: editorial_workflow
 media_folder: 'src/assets' # Media files will be stored in the repo under static/images/uploads
 public_folder: '/assets' # The src attribute for uploaded media will begin with /images/uploads
+show_preview_links: false
 collections:
   - name: 'pages'
     label: 'Pages'
@@ -49,12 +50,10 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
-      - {
-          label: 'Permalink',
-          name: 'permalink',
-          widget: 'hidden',
-          default: 'posts/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/',
-        }
+      - label: 'Permalink'
+        name: 'permalink'
+        widget: 'hidden'
+        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
       - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
@@ -68,44 +67,24 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'code.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
-      - {
-          label: 'Permalink',
-          name: 'permalink',
-          widget: 'hidden',
-          default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/',
-        }
-      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
+      - label: 'Permalink'
+        name: 'permalink'
+        widget: 'hidden'
+        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['code', 'posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - {
-          label: 'HTML',
-          name: 'html',
-          widget: 'code',
-          default_language: 'html',
-          allow_language_selection: false,
-        }
-      - {
-          label: 'Styles',
-          name: 'stylesheets',
-          widget: 'list',
-          field: { label: 'URL', name: 'url', widget: 'string' },
-        }
-      - {
-          label: 'CSS',
-          name: 'css',
-          widget: 'code',
-          default_language: 'css',
-          allow_language_selection: false,
-        }
-      - {
-          label: 'Scripts',
-          name: 'scripts',
-          widget: 'list',
-          field: { label: 'URL', name: 'url', widget: 'string' },
-        }
-      - {
-          label: 'JavaScript',
-          name: 'js',
-          widget: 'code',
-          default_language: 'javascript',
-          allow_language_selection: false,
-        }
+      - label: 'HTML'
+        name: 'html'
+        widget: 'code'
+        default_language: 'html'
+        allow_language_selection: false
+      - label: 'CSS'
+        name: 'css'
+        widget: 'code'
+        default_language: 'css'
+        allow_language_selection: false
+      - label: 'JavaScript'
+        name: 'js'
+        widget: 'code'
+        default_language: 'javascript'
+        allow_language_selection: false
