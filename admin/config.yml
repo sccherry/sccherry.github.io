@@ -50,11 +50,12 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: 'Published', name: 'name', widget: 'boolean', default: true }
       - label: 'Permalink'
         name: 'permalink'
         widget: 'hidden'
-        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
-      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['posts'] }
+        default: 'posts/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+      - { label: 'Tags', name: 'tags', widget: 'list', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
     label: 'Code' # Used in the UI
@@ -67,11 +68,12 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'code.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
+      - { label: 'Published', name: 'name', widget: 'boolean', default: true }
       - label: 'Permalink'
         name: 'permalink'
         widget: 'hidden'
-        default: '{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
-      - { label: 'Tags', name: 'tags', widget: 'hidden', default: ['code', 'posts'] }
+        default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+      - { label: 'Tags', name: 'tags', widget: 'list', default: ['code'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'HTML'
         name: 'html'

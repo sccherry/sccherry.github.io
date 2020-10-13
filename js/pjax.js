@@ -11,7 +11,10 @@
     request.responseType = 'document';
 
     request.onreadystatechange = function readyState() {
-      if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+      if (
+        request.readyState === XMLHttpRequest.DONE &&
+        request.status === 200
+      ) {
         onSuccess(request.response);
       }
     };
@@ -34,7 +37,9 @@
 
     get(pathname, function update(response) {
       title.textContent = response.querySelector('title').textContent;
-      description.textContent = response.querySelector('meta[name=description]').textContent;
+      description.textContent = response.querySelector(
+        'meta[name=description]'
+      ).textContent;
       canonical.setAttribute(
         'href',
         response.querySelector('link[rel=canonical]').getAttribute('href')
