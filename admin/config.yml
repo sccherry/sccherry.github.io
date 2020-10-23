@@ -51,10 +51,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
       - { label: 'Published', name: 'name', widget: 'boolean', default: true }
-      - label: 'Permalink'
-        name: 'permalink'
-        widget: 'hidden'
-        default: 'posts/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+      - { label: 'Permalink', name: 'permalink', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
@@ -62,17 +59,12 @@ collections:
     folder: 'src/code' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    editor:
-      preview: false
     fields: # The fields for each document, usually in front matter
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'code.njk' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
       - { label: 'Published', name: 'name', widget: 'boolean', default: true }
-      - label: 'Permalink'
-        name: 'permalink'
-        widget: 'hidden'
-        default: 'code/{{ date.toISOString().split("T")[0].split("-").join("/") }}/{{ page.fileSlug }}/'
+      - { label: 'Permalink', name: 'permalink', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', default: ['code'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'HTML'
