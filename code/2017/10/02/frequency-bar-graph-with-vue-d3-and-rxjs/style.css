@@ -1,0 +1,20 @@
+
+html {
+  background-color: black;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+#app {
+  flex: 1;
+}
+
