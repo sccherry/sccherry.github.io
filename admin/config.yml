@@ -51,7 +51,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
       - { label: 'Published', name: 'name', widget: 'boolean', default: true }
-      - { label: 'Permalink', name: 'permalink', widget: 'string' }
+      - { label: 'Permalink', name: 'permalink', widget: 'string', required: false }
       - { label: 'Tags', name: 'tags', widget: 'list', default: ['posts'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'code' # Used in routes, e.g., /admin/collections/blog
@@ -64,7 +64,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'date', format: 'YYYY-MM-DD' }
       - { label: 'Published', name: 'name', widget: 'boolean', default: true }
-      - { label: 'Permalink', name: 'permalink', widget: 'string' }
+      - { label: 'Permalink', name: 'permalink', widget: 'string', required: false }
       - { label: 'Tags', name: 'tags', widget: 'list', default: ['code'] }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'HTML'

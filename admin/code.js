@@ -3,15 +3,24 @@ import htm from 'https://unpkg.com/htm?module';
 const html = htm.bind(h);
 
 export default createClass({
-  componentDidMount() {
+  componentDidUpdate() {
     const { document, entry } = this.props;
     const script = entry.getIn(['data', 'js', 'code']);
-    const el = document.createElement("script");
 
-    el.type = 'module';
-    el.innerHTML = script;
+    const currentEl = document.querySelector('script');
 
-    document.body.appendChild(el);
+    if (currentEl) {
+      currentEl.remove();
+    }
+
+    if (script) {
+      const el = document.createElement('script');
+
+      el.type = 'module';
+      el.innerHTML = script;
+
+      document.body.appendChild(el);
+    }
   },
   render() {
     const { entry } = this.props;
