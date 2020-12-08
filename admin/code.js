@@ -3,7 +3,13 @@ import htm from 'https://unpkg.com/htm?module';
 const html = htm.bind(h);
 
 export default createClass({
+  componentDidMount() {
+    this.renderScript();
+  },
   componentDidUpdate() {
+    this.renderScript();
+  },
+  renderScript() {
     const { document, entry } = this.props;
     const script = entry.getIn(['data', 'js', 'code']);
 
@@ -28,18 +34,21 @@ export default createClass({
     const style = entry.getIn(['data', 'css', 'code']);
 
     const createMarkup = () => {
+      let str = '';
+
+      if (style) {
+        str += `<style>${style}</style>`;
+      }
+
+      if (markup) {
+        str += markup;
+      }
+
       return {
-        __html: markup,
+        __html: str,
       };
     };
 
-    return html`
-      ${style
-        ? html`<style>
-            ${style}
-          </style>`
-        : undefined}
-      <div dangerouslySetInnerHTML=${createMarkup()}></div>
-    `;
+    return html` <div dangerouslySetInnerHTML=${createMarkup()}></div> `;
   },
 });
