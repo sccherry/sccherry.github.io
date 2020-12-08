@@ -1,0 +1,32 @@
+
+form {
+  max-width: 300px;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input + .input {
+  margin-top: 8px;
+}
+
+.input label {
+  margin-right: 20px;
+  flex-basis: 140px;
+}
+
+.input input {
+  flex-basis: 40px;
+  width: 100%;
+}
+
+output {
+  margin-top: 4px;
+  border-top: 1px solid;
+  padding-top: 3px;
+  display: block;
+  text-align: right;
+}
+
