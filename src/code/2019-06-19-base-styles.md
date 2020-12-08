@@ -9,7 +9,10 @@ html:
   code: >-
     <div class="Test">
       .
-
+      <h1 class="Test-title">
+        <a href="https://github.com/necolas/normalize.css">Normalize.css</a>: UI tests
+      </h1>
+      
       <h2 class="Test-describe"><code>html</code></h2>
       <h3 class="Test-it">should have a line height of 1.15</h3>
       <div class="Test-run">
