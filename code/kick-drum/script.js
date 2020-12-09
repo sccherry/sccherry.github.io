@@ -1,6 +1,5 @@
 
 import { createAmplitudeEnvelope, createOmniOscillator, createPiano } from '/code/nexus-tone-components/script.js';
-
 const options = {
   synth: {
     pitchDecay: 0.005,
