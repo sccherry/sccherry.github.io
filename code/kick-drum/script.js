@@ -1,5 +1,5 @@
 
-import { createAmplitudeEnvelope, createOmniOscillator, createPiano } from '/code/2017/02/07/nexus-tone-components/script.js';
+import { createAmplitudeEnvelope, createOmniOscillator, createPiano } from '/code/nexus-tone-components/script.js';
 
 const options = {
   synth: {
