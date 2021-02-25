@@ -11,204 +11,6 @@ html:
 css:
   lang: css
   code: >-
-    /* Variables
-     * ========================================================================== *
-
-    /**
-     * Typography
-     */
-
-    :root {
-      --font-family: system-ui,
-        /* macOS 10.11-10.12 */ -apple-system,
-        /* Windows 6+ */ 'Segoe UI',
-        /* Android 4+ */ 'Roboto',
-        /* Ubuntu 10.10+ */ 'Ubuntu', 
-        /* Gnome 3+ */ 'Cantarell',
-        /* KDE Plasma 5+ */ 'Noto Sans',
-        /* fallback */ sans-serif,
-        /* macOS emoji */ 'Apple Color Emoji',
-        /* Windows emoji */ 'Segoe UI Emoji',
-        /* Windows emoji */ 'Segoe UI Symbol',
-        /* Linux emoji */ 'Noto Color Emoji';
-      --font-family-monospace: /* macOS 10.10+ */ "Menlo",
-        /* Windows 6+ */ "Consolas",
-        /* Android 4+ */ "Roboto Mono",
-        /* Ubuntu 10.10+ */ "Ubuntu Monospace",
-        /* KDE Plasma 5+ */ "Noto Mono",
-        /* KDE Plasma 4+ */ "Oxygen Mono",
-        /* Linux/OpenOffice fallback */ "Liberation Mono",
-        /* fallback */ monospace,
-        /* macOS emoji */ "Apple Color Emoji",
-        /* Windows emoji */ "Segoe UI Emoji",
-        /* Windows emoji */ "Segoe UI Symbol",
-        /* Linux emoji */ "Noto Color Emoji";
-    }
-
-
-    /**
-     * Modular scale
-     */
-
-    :root {
-      --modular-scale-ratio: 1.618; /* Golden ratio */
-      --modular-scale-0: 1rem;
-      --modular-scale--1: calc(var(--modular-scale-0) / var(--modular-scale-ratio));
-      --modular-scale--2: calc(var(--modular-scale--1) / var(--modular-scale-ratio));
-      --modular-scale-1: calc(var(--modular-scale-0) * var(--modular-scale-ratio));
-      --modular-scale-2: calc(var(--modular-scale-1) * var(--modular-scale-ratio));
-      --modular-scale-3: calc(var(--modular-scale-2) * var(--modular-scale-ratio));
-    }
-
-
-    /**
-     * Vertical rhythm
-     */
-
-    :root {
-      --vertical-rhythm-base: 1.5;
-      --vertical-rhythm-1: calc(var(--vertical-rhythm-base) * var(--modular-scale-0));
-    }
-
-
-    /**
-     * Colors
-     */
-
-    :root {
-      --color-gray-0: hsl(210, 17%, 98%);
-      --color-gray-1: hsl(210, 17%, 95%);
-      --color-gray-2: hsl(210, 16%, 93%);
-      --color-gray-3: hsl(210, 14%, 89%);
-      --color-gray-4: hsl(210, 14%, 83%);
-      --color-gray-5: hsl(210, 11%, 71%);
-      --color-gray-6: hsl(210, 7%, 56%);
-      --color-gray-7: hsl(210, 9%, 31%);
-      --color-gray-8: hsl(210, 10%, 23%);
-      --color-gray-9: hsl(210, 11%, 15%);
-      --color-red-0: hsl(0, 100%, 98%);
-      --color-red-1: hsl(0, 100%, 95%);
-      --color-red-2: hsl(0, 100%, 89%);
-      --color-red-3: hsl(0, 100%, 83%);
-      --color-red-4: hsl(0, 100%, 76%);
-      --color-red-5: hsl(0, 100%, 71%);
-      --color-red-6: hsl(0, 94%, 65%);
-      --color-red-7: hsl(0, 86%, 59%);
-      --color-red-8: hsl(0, 74%, 54%);
-      --color-red-9: hsl(0, 65%, 48%);
-      --color-pink-0: hsl(336, 100%, 97%);
-      --color-pink-1: hsl(336, 100%, 94%);
-      --color-pink-2: hsl(338, 91%, 87%);
-      --color-pink-3: hsl(339, 90%, 81%);
-      --color-pink-4: hsl(339, 88%, 74%);
-      --color-pink-5: hsl(339, 82%, 67%);
-      --color-pink-6: hsl(339, 76%, 59%);
-      --color-pink-7: hsl(339, 67%, 52%);
-      --color-pink-8: hsl(339, 68%, 45%);
-      --color-pink-9: hsl(339, 69%, 38%);
-      --color-grape-0: hsl(280, 67%, 96%);
-      --color-grape-1: hsl(287, 77%, 92%);
-      --color-grape-2: hsl(288, 86%, 86%);
-      --color-grape-3: hsl(289, 85%, 78%);
-      --color-grape-4: hsl(288, 83%, 71%);
-      --color-grape-5: hsl(288, 75%, 64%);
-      --color-grape-6: hsl(288, 67%, 58%);
-      --color-grape-7: hsl(288, 56%, 52%);
-      --color-grape-8: hsl(288, 54%, 46%);
-      --color-grape-9: hsl(288, 54%, 40%);
-      --color-violet-0: hsl(252, 100%, 97%);
-      --color-violet-1: hsl(257, 100%, 93%);
-      --color-violet-2: hsl(256, 100%, 87%);
-      --color-violet-3: hsl(255, 94%, 79%);
-      --color-violet-4: hsl(255, 93%, 72%);
-      --color-violet-5: hsl(255, 91%, 67%);
-      --color-violet-6: hsl(255, 86%, 63%);
-      --color-violet-7: hsl(255, 78%, 60%);
-      --color-violet-8: hsl(255, 67%, 55%);
-      --color-violet-9: hsl(255, 53%, 50%);
-      --color-indigo-0: hsl(223, 100%, 96%);
-      --color-indigo-1: hsl(225, 100%, 93%);
-      --color-indigo-2: hsl(228, 100%, 86%);
-      --color-indigo-3: hsl(228, 100%, 78%);
-      --color-indigo-4: hsl(228, 96%, 72%);
-      --color-indigo-5: hsl(228, 94%, 67%);
-      --color-indigo-6: hsl(228, 89%, 63%);
-      --color-indigo-7: hsl(228, 81%, 59%);
-      --color-indigo-8: hsl(228, 69%, 55%);
-      --color-indigo-9: hsl(230, 57%, 50%);
-      --color-blue-0: hsl(205, 100%, 95%);
-      --color-blue-1: hsl(206, 100%, 91%);
-      --color-blue-2: hsl(206, 100%, 82%);
-      --color-blue-3: hsl(206, 96%, 72%);
-      --color-blue-4: hsl(207, 91%, 64%);
-      --color-blue-5: hsl(207, 86%, 57%);
-      --color-blue-6: hsl(208, 80%, 52%);
-      --color-blue-7: hsl(208, 77%, 47%);
-      --color-blue-8: hsl(209, 77%, 43%);
-      --color-blue-9: hsl(209, 75%, 38%);
-      --color-cyan-0: hsl(185, 81%, 94%);
-      --color-cyan-1: hsl(185, 84%, 88%);
-      --color-cyan-2: hsl(186, 77%, 77%);
-      --color-cyan-3: hsl(187, 74%, 65%);
-      --color-cyan-4: hsl(187, 69%, 55%);
-      --color-cyan-5: hsl(188, 72%, 47%);
-      --color-cyan-6: hsl(187, 80%, 42%);
-      --color-cyan-7: hsl(188, 83%, 37%);
-      --color-cyan-8: hsl(189, 85%, 32%);
-      --color-cyan-9: hsl(189, 85%, 28%);
-      --color-teal-0: hsl(161, 79%, 95%);
-      --color-teal-1: hsl(160, 85%, 87%);
-      --color-teal-2: hsl(162, 78%, 77%);
-      --color-teal-3: hsl(162, 72%, 65%);
-      --color-teal-4: hsl(162, 68%, 54%);
-      --color-teal-5: hsl(162, 73%, 46%);
-      --color-teal-6: hsl(162, 82%, 40%);
-      --color-teal-7: hsl(162, 87%, 35%);
-      --color-teal-8: hsl(162, 88%, 30%);
-      --color-teal-9: hsl(162, 88%, 26%);
-      --color-green-0: hsl(131, 67%, 95%);
-      --color-green-1: hsl(128, 76%, 90%);
-      --color-green-2: hsl(128, 71%, 82%);
-      --color-green-3: hsl(129, 68%, 73%);
-      --color-green-4: hsl(130, 61%, 64%);
-      --color-green-5: hsl(130, 57%, 56%);
-      --color-green-6: hsl(131, 50%, 50%);
-      --color-green-7: hsl(131, 53%, 46%);
-      --color-green-8: hsl(131, 54%, 40%);
-      --color-green-9: hsl(132, 52%, 35%);
-      --color-lime-0: hsl(79, 81%, 94%);
-      --color-lime-1: hsl(80, 83%, 88%);
-      --color-lime-2: hsl(81, 81%, 80%);
-      --color-lime-3: hsl(82, 75%, 69%);
-      --color-lime-4: hsl(83, 73%, 59%);
-      --color-lime-5: hsl(84, 69%, 51%);
-      --color-lime-6: hsl(85, 74%, 45%);
-      --color-lime-7: hsl(85, 79%, 40%);
-      --color-lime-8: hsl(86, 84%, 36%);
-      --color-lime-9: hsl(85, 84%, 32%);
-      --color-yellow-0: hsl(50, 100%, 93%);
-      --color-yellow-1: hsl(49, 100%, 87%);
-      --color-yellow-2: hsl(49, 100%, 80%);
-      --color-yellow-3: hsl(48, 100%, 70%);
-      --color-yellow-4: hsl(47, 100%, 62%);
-      --color-yellow-5: hsl(45, 97%, 54%);
-      --color-yellow-6: hsl(42, 96%, 50%);
-      --color-yellow-7: hsl(39, 100%, 48%);
-      --color-yellow-8: hsl(35, 100%, 47%);
-      --color-yellow-9: hsl(31, 100%, 45%);
-      --color-orange-0: hsl(34, 100%, 95%);
-      --color-orange-1: hsl(33, 100%, 90%);
-      --color-orange-2: hsl(33, 100%, 83%);
-      --color-orange-3: hsl(32, 100%, 74%);
-      --color-orange-4: hsl(31, 100%, 65%);
-      --color-orange-5: hsl(29, 100%, 58%);
-      --color-orange-6: hsl(27, 98%, 54%);
-      --color-orange-7: hsl(24, 94%, 50%);
-      --color-orange-8: hsl(21, 90%, 48%);
-      --color-orange-9: hsl(17, 87%, 45%);
-    }
-
-
     /* Document
      * ========================================================================== */
 
@@ -285,14 +87,27 @@ css:
      *    IE on Windows Phone and in iOS.
      * 6. Breaks words to prevent overflow in all browsers (opinionated).
      * 7. Add border box sizing in all browsers (opinionated).
+     * 8. Use the default user interface font in all browsers (opinionated).
      */
 
     html {
       cursor: default; /* 1 */
-      color: var(--color-gray-9, #222);
-      font-family: var(--font-family, sans-serif);
-      font-size: var(--modular-scale-0, 1rem);
-      line-height: var(--vertical-rhythm-base, 1.5); /* 2 */
+      color: #222;
+      font-family:
+        system-ui,
+        /* macOS 10.11-10.12 */ -apple-system,
+        /* Windows 6+ */ "Segoe UI",
+        /* Android 4+ */ "Roboto",
+        /* Ubuntu 10.10+ */ "Ubuntu",
+        /* Gnome 3+ */ "Cantarell",
+        /* KDE Plasma 5+ */ "Noto Sans",
+        /* fallback */ sans-serif,
+        /* macOS emoji */ "Apple Color Emoji",
+        /* Windows emoji */ "Segoe UI Emoji",
+        /* Windows emoji */ "Segoe UI Symbol",
+        /* Linux emoji */ "Noto Color Emoji"; /* 8 */
+      font-size: 1em;
+      line-height: 1.5; /* 2 */
       -moz-tab-size: 4; /* 3 */
            tab-size: 4; /* 3 */
       -webkit-tap-highlight-color: transparent /* 4 */;
@@ -331,12 +146,7 @@ css:
      */
 
     body * + * {
-      margin-top: var(--vertical-rhythm-1, 1.5em);
-    }
-
-
-    h1, h2, h3, h4, h5, h6 {
-      margin-bottom: 0;
+      margin-top: 1.5em;
     }
 
 
@@ -358,32 +168,32 @@ css:
      */
 
     h1 {
-      font-size: var(--modular-scale-3);
+      font-size: 1.953em;
     }
 
 
     h2 {
-      font-size: var(--modular-scale-2);
+      font-size: 1.563em;
     }
 
 
     h3 {
-      font-size: var(--modular-scale-1);
+      font-size: 1.25em;
     }
 
 
     h4 {
-      font-size: var(--modular-scale-0);
+      font-size: 1em;
     }
 
 
     h5 {
-      font-size: var(--modular-scale--1);
+      font-size: 0.8em;
     }
 
 
     h6 {
-      font-size: var(--modular-scale--2);
+      font-size: 0.64em;
     }
 
 
@@ -449,33 +259,6 @@ css:
 
 
     /**
-     * Hang numbers.
-     * https://github.com/kennethormandy/dodging-bullets
-     */
-
-    ol {
-      counter-reset: li;
-    }
-
-
-    ol > li {
-      position: relative;
-      list-style: none;
-    }
-
-
-    ol > li::before {
-      position: absolute;
-      padding-right: 0.5em;
-      text-align: end;
-      transform: translateX(-100%);
-      content: counter(li) ".";
-      counter-increment: li;
-      font-feature-settings: "kern" 0, "tnum" 1, "onum" 1, "liga" 1;
-    }
-
-
-    /**
      * 1. Correct the inheritance of border color in Firefox.
      * 2. Add the correct box sizing in Firefox.
      * 3. Show the overflow in Edge 18- and IE.
@@ -517,12 +300,7 @@ css:
      */
 
     nav li::before {
-      content: '\200B';
-    }
-
-
-    p {
-      margin-bottom: 0;
+      content: "\200B";
     }
 
 
@@ -530,13 +308,25 @@ css:
      * 1. Use the default monospace user interface font in all browsers (opinionated).
      * 2. Correct the odd `em` font sizing in all browsers.
      * 3. Prevent overflow of the container in all browsers (opinionated).
-     * 4. Turn off kerning and ligatures,
-     *    turn on lining, tabular numerals, slashed zero.
+     * 4. Turn off kerning and ligatures.
+     *    Turn on lining, tabular numerals, slashed zero.
      */
 
     pre {
-      font-family: var(--font-family-monospace, monospace); /* 1 */
-      font-size: var(--modular-scale-0, 1em); /* 2 */
+      font-family:
+        /* macOS 10.10+ */ "Menlo",
+        /* Windows 6+ */ "Consolas",
+        /* Android 4+ */ "Roboto Mono",
+        /* Ubuntu 10.10+ */ "Ubuntu Monospace",
+        /* KDE Plasma 5+ */ "Noto Mono",
+        /* KDE Plasma 4+ */ "Oxygen Mono",
+        /* Linux/OpenOffice fallback */ "Liberation Mono",
+        /* fallback */ monospace,
+        /* macOS emoji */ "Apple Color Emoji",
+        /* Windows emoji */ "Segoe UI Emoji",
+        /* Windows emoji */ "Segoe UI Symbol",
+        /* Linux emoji */ "Noto Color Emoji"; /* 1 */
+      font-size: 1em; /* 2 */
       overflow: auto; /* 3 */
       -ms-overflow-style: scrollbar; /* 3 */
       font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 4 */
@@ -586,8 +376,8 @@ css:
     /**
      * 1. Use the default monospace user interface font in all browsers (opinionated).
      * 2. Correct the odd `em` font sizing in all browsers.
-     * 3. Turn off kerning and ligatures,
-     *    turn on lining, tabular numerals, slashed zero.
+     * 3. Turn off kerning and ligatures.
+     *    Turn on lining, tabular numerals, slashed zero.
      */
 
     code,
@@ -595,8 +385,20 @@ css:
     kbd,
 
     samp {
-      font-family: var(--font-family-monospace, monospace); /* 1 */
-      font-size: var(--modular-scale-0, 1em); /* 2 */
+      font-family:
+        /* macOS 10.10+ */ "Menlo",
+        /* Windows 6+ */ "Consolas",
+        /* Android 4+ */ "Roboto Mono",
+        /* Ubuntu 10.10+ */ "Ubuntu Monospace",
+        /* KDE Plasma 5+ */ "Noto Mono",
+        /* KDE Plasma 4+ */ "Oxygen Mono",
+        /* Linux/OpenOffice fallback */ "Liberation Mono",
+        /* fallback */ monospace,
+        /* macOS emoji */ "Apple Color Emoji",
+        /* Windows emoji */ "Segoe UI Emoji",
+        /* Windows emoji */ "Segoe UI Symbol",
+        /* Linux emoji */ "Noto Color Emoji"; /* 1 */
+      font-size: 1em; /* 2 */
       font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 3 */
     }
 
@@ -606,7 +408,7 @@ css:
      */
 
     small {
-      font-size: var(--modular-scale--1, 80%);
+      font-size: 0.8em;
     }
 
 
@@ -615,7 +417,7 @@ css:
      */
 
     sub {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1; /* 1 */
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1;
     }
 
 
@@ -624,7 +426,7 @@ css:
      */
 
     sup {
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1; /* 1 */
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1;
     }
 
 
@@ -720,7 +522,7 @@ css:
 
 
     /* Tabular data
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
      * 1. Collapse border spacing in all browsers (opinionated).
@@ -740,7 +542,7 @@ css:
 
 
     /**
-     * Turns on tabular, lining numerals and slashed zero.
+     * Turn on tabular, lining numerals and slashed zero.
      */
 
     tbody,
@@ -818,7 +620,7 @@ css:
 
 
     /**
-     * Correct the inability to style clickable types in iOS and Safari.
+     * Correct the inability to style buttons in iOS and Safari.
      */
 
     button,
@@ -830,8 +632,6 @@ css:
     [type="submit"] {
       -webkit-appearance: button;
     }
-
-
 
 
     /**
@@ -933,7 +733,7 @@ css:
 
 
     /**
-     * Turns on lining, proportional numerals without clarified zeroes.
+     * Turn on lining, proportional numerals without clarified zeroes.
      */
 
     [type="color"],
@@ -951,7 +751,7 @@ css:
     [type="tel"],
 
     [type="week"] {
-      font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0; /* 1 */
+      font-feature-settings: "kern" 0, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 1, "zero" 0;
     }
 
 
@@ -999,6 +799,15 @@ css:
 
 
     /**
+     * Correct the inconsistent appearance in IE (opinionated).
+     */
+
+    :-ms-input-placeholder {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+
+    /**
      * Correct the text style of placeholders in Chrome, Edge, and Safari.
      */
 
@@ -1018,7 +827,7 @@ css:
 
 
     /**
-     * 1. Correct the inability to style clickable types in iOS and Safari.
+     * 1. Correct the inability to style upload buttons in iOS and Safari.
      * 2. Change font properties to `inherit` in Safari.
      */
 
@@ -1057,7 +866,7 @@ css:
 
 
     /* Interactive
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
      * Add the correct display in Edge 18- and IE.
@@ -1128,6 +937,14 @@ css:
     }
 
 
+    /* User interaction
+     * ========================================================================== */
+
+    [hidden] + * {
+      margin-top: 0;
+    }
+
+
     /* Accessibility
      * ========================================================================== */
 
@@ -1164,8 +981,6 @@ css:
     /**
      * Change the display on visually hidden accessible elements
      * in all browsers (opinionated).
-     * http://juicystudio.com/article/screen-readers-display-none.php
-     * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
      */
 
     [aria-hidden="false"][hidden] {
@@ -1176,15 +991,6 @@ css:
     [aria-hidden="false"][hidden]:not(:focus) {
       clip: rect(0, 0, 0, 0);
       position: absolute;
-    }
-
-
-    /**
-     * Override default margin.
-     */
-
-    [hidden][aria-hidden="false"] + * {
-      margin-top: 0;
     }
 js:
   lang: javascript
@@ -1202,3 +1008,6 @@ js:
 * https://github.com/mrmrs/fluidity
 * http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
 * https://css-tricks.com/html5-meter-element
+* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+* http://juicystudio.com/article/screen-readers-display-none.php
+* http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
