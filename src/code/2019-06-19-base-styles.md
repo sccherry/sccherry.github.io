@@ -1189,16 +1189,16 @@ css:
 js:
   lang: javascript
 ---
-* https://necolas.github.io/normalize.css/8.0.1/normalize.css
-* https://csstools.github.io/sanitize.css/10.0.0/sanitize.css
-* https://raw.githubusercontent.com/kennethormandy/normalize-opentype.css/v0.2.4/normalize-opentype.css
-* https://raw.githubusercontent.com/h5bp/html5-boilerplate/v7.2.0/dist/css/main.css
-* https://github.com/benfrain/app-reset/blob/master/app-reset.css\
+* https://github.com/necolas/normalize.css
+* https://github.com/csstools/sanitize.css
+* https://github.com/kennethormandy/normalize-opentype.css
+* https://github.com/h5bp/html5-boilerplate
+* https://github.com/benfrain/app-reset/blob/master/app-reset.css
 * https://css-tricks.com/the-focus-visible-trick/
 * https://yeun.github.io/open-color
 * https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
 * http://nocode.in/aligning-text-smartly-in-css
 * https://css-tricks.com/time-element
 * https://github.com/mrmrs/fluidity
-* * http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
+* http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
 * https://css-tricks.com/html5-meter-element
