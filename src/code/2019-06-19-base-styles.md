@@ -2,384 +2,47 @@
 layout: code.njk
 title: Base styles
 date: 2019-06-19
+published: false
 tags:
   - code
 html:
   lang: html
-  code: >-
-    <div class="Test">
-      .
-      <h1 class="Test-title">
-        <a href="https://github.com/necolas/normalize.css">Normalize.css</a>: UI tests
-      </h1>
-      
-      <h2 class="Test-describe"><code>html</code></h2>
-      <h3 class="Test-it">should have a line height of 1.15</h3>
-      <div class="Test-run">
-        abcdefghijklmnopqrstuvwxyz
-      </div>
-
-      <h2 class="Test-describe"><code>body</code></h2>
-      <h3 class="Test-it">should have no margin (opinionated)</h3>
-      <div class="Test-run">
-        (there should be no red background visible on this page)
-      </div>
-
-      <h2 class="Test-describe">
-        <code>article</code>, <code>aside</code>, <code>details</code>,
-        <code>figure</code>, <code>figcaption</code>, <code>footer</code>,
-        <code>header</code>, <code>main</code>,
-        <code>menu</code>, <code>nav</code>, <code>section</code>,
-        <code>summary</code>
-      </h2>
-      <h3 class="Test-it">should render as block</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <article>article</article>
-        <aside>aside</aside>
-        <details>
-          <summary>summary</summary>
-          details
-        </details>
-        <figure>
-          figure
-          <figcaption>figcaption</figcaption>
-        </figure>
-        <footer>footer</footer>
-        <header>header</header>
-        <main>main</main>
-        <menu><li>menu</li></menu>
-        <nav>nav</nav>
-        <section>section</section>
-      </div>
-
-      <h2 class="Test-describe"><code>audio</code>, <code>canvas</code>, <code>progress</code>, <code>video</code></h2>
-      <h3 class="Test-it">should render as inline-block and baseline-aligned</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <audio controls>audio</audio>
-        <canvas>canvas</canvas>
-        <progress>progress</progress>
-        <video controls>video</video>
-      </div>
-
-      <h2 class="Test-describe"><code>audio:not([controls])</code>, <code>template</code>, <code>[hidden]</code></h2>
-      <h3 class="Test-it">should not display</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <audio>audio</audio>
-        <template>
-          <h1>{{title}}</h1>
-          <content></content>
-        </template>
-        <p hidden>This should be hidden</p>
-      </div>
-
-      <h2 class="Test-describe"><code>a</code></h2>
-      <h3 class="Test-it">should have a transparent background when active</h3>
-      <div class="Test-run">
-        <a href="#non">dummy anchor</a>
-      </div>
-      <h3 class="Test-it">should not skip underlines</h3>
-      <div class="Test-run">
-        <a href="#non">quip and jig</a>
-      </div>
-      <h3 class="Test-it">should not have a focus outline when both focused and hovered (opinionated)</h3>
-      <div class="Test-run">
-        <a href="#non">dummy anchor</a>
-      </div>
-
-      <h2 class="Test-describe"><code>abbr[title]</code></h2>
-      <h3 class="Test-it">should have a dotted underline with a solid underline as a fallback</h3>
-      <div class="Test-run">
-        <abbr title="abbreviation">abbr</abbr>
-      </div>
-
-      <h2 class="Test-describe"><code>b</code>, <code>strong</code></h2>
-      <h3 class="Test-it">should have bolder font-weight</h3>
-      <div class="Test-run">
-        <b>b</b>
-        <strong>strong</strong>
-      </div>
-
-      <h2 class="Test-describe"><code>dfn</code></h2>
-      <h3 class="Test-it">should have italic font-style</h3>
-      <div class="Test-run">
-        <dfn>dfn</dfn>
-      </div>
-
-      <h2 class="Test-describe"><code>h1</code></h2>
-      <h3 class="Test-it">should not change size within an <code>article</code></h3>
-      <div class="Test-run">
-        <h1>Heading (control)</h1>
-        <article>
-          <h1>Heading (in article)</h1>
-        </article>
-      </div>
-      <h3 class="Test-it">should not change size within a <code>section</code></h3>
-      <div class="Test-run">
-        <h1>Heading (control)</h1>
-        <section>
-          <h1>Heading (in section)</h1>
-        </section>
-      </div>
-
-      <h2 class="Test-describe"><code>mark</code></h2>
-      <h3 class="Test-it">should have a yellow background</h3>
-      <div class="Test-run">
-        <mark>mark</mark>
-      </div>
-
-      <h2 class="Test-describe"><code>small</code></h2>
-      <h3 class="Test-it">should render equally small in all browsers</h3>
-      <div class="Test-run">
-        control. <small>small.</small>
-      </div>
-
-      <h2 class="Test-describe"><code>sub</code> and <code>sup</code></h2>
-      <h3 class="Test-it">should not affect a line's visual line-height</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <p>control.</p>
-        <p>control. <sub>sub.</sub></p>
-        <p>control. <sup>sup.</sup></p>
-      </div>
-
-      <h2 class="Test-describe"><code>img</code></h2>
-      <h3 class="Test-it">should not have a border when wrapped in an anchor</h3>
-      <div class="Test-run">
-        <a href="#non">
-          <!-- scaled-up 1px image -->
-          <img style="background-color:#ADD8E6" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="100" height="100">
-        </a>
-      </div>
-
-      <h2 class="Test-describe"><code>svg</code></h2>
-      <h3 class="Test-it">should not overflow</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <svg width="100px" height="100px">
-          <circle cx="100" cy="100" r="100" fill="#ADD8E6" />
-        </svg>
-      </div>
-
-      <h2 class="Test-describe"><code>code</code>, <code>kbd</code>, <code>pre</code>, <code>samp</code></h2>
-      <h3 class="Test-it">should render text at the same absolute size as normal text</h3>
-      <div class="Test-run">
-        <span>span: abcdefghijklmnopqrstuvwxyz.</span><br>
-        <code>code: abcdefghijklmnopqrstuvwxyz.</code><br>
-        <kbd>kbd: abcdefghijklmnopqrstuvwxyz.</kbd><br>
-        <samp>samp: abcdefghijklmnopqrstuvwxyz.</samp>
-        <pre>pre: abcdefghijklmnopqrstuvwxyz.</pre>
-      </div>
-
-      <h2 class="Test-describe"><code>figure</code></h2>
-      <h3 class="Test-it">should have margins</h3>
-      <div class="Test-run" style="outline:1px solid #ADD8E6; overflow:hidden;">
-        <figure>
-          <img style="background-color:#ADD8E6" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="400" height="200">
-        </figure>
-      </div>
-
-      <h2 class="Test-describe"><code>hr</code></h2>
-      <h3 class="Test-it">should have a <code>content-box</code> box model</h3>
-      <div class="Test-run" style="">
-        <hr style="height:2px; border:solid #ADD8E6; border-width:2px 0;">
-      </div>
-
-      <h2 class="Test-describe"><code>button</code>, <code>input</code>, <code>optgroup</code>, <code>select</code>, <code>textarea</code></h2>
-      <h3 class="Test-it">should inherit <code>font-size</code> from ancestor</h3>
-      <div class="Test-run" style="font-size: 20px;">
-        <button>button</button><br>
-        <input value="input"><br>
-        <select style="border:1px solid #999;">
-          <optgroup label="optgroup">
-            <option>option</option>
-          </optgroup>
-          <option>option</option>
-        </select><br>
-        <textarea>textarea</textarea>
-      </div>
-      <h3 class="Test-it">should not have margins</h3>
-      <div class="Test-run" id="form-collection-margins">
-        <style>
-          #form-collection-margins {
-            outline: 1px solid #ADD8E6;
-            overflow: hidden;
-          }
-
-          #form-collection-margins button,
-          #form-collection-margins input,
-          #form-collection-margins select,
-          #form-collection-margins textarea {
-            display: block;
-          }
-        </style>
-        <button>button</button>
-        <input value="input">
-        <select style="border:1px solid #999;">
-          <optgroup label="optgroup">
-            <option>option</option>
-          </optgroup>
-          <option>option</option>
-        </select>
-        <textarea>textarea</textarea>
-      </div>
-
-      <h2 class="Test-describe"><code>button</code></h2>
-      <h3 class="Test-it">should have visible overflow</h3>
-      <div class="Test-run" id="button-overflow">
-        <style>
-          #button-overflow button:after {
-            content: "";
-            background: #ADD8E6;
-            display: inline-block;
-            height: 10px;
-            position:relative;
-            right: -20px;
-            width: 10px;
-          }
-        </style>
-        <button>abcdefghijklmnopqrstuvwxyz</button>
-      </div>
-
-      <h2 class="Test-describe"><code>button</code>, <code>select</code></h2>
-      <h3 class="Test-it">should not inherit <code>text-transform</code></h3>
-      <div class="Test-run" style="text-transform:uppercase">
-        <button>button</button>
-        <select><option>option</option></select>
-      </div>
-
-      <h2 class="Test-describe"><code>button</code> and button-style <code>input</code></h2>
-      <h3 class="Test-it">should be styleable</h3>
-      <div class="Test-run" id="button-like-style">
-        <style>
-          #button-like-style button,
-          #button-like-style input {
-            background: #ADD8E6;
-            border: 2px solid black;
-            border-radius: 2px;
-            padding: 5px;
-          }
-        </style>
-        <p><button>button</button></p>
-        <p><input type="image" src="//placehold.it/90x24" alt="input (image)"></p>
-        <p><input type="button" value="input (button)"></p>
-        <p><input type="file" value="input (file)"></p>
-        <p><input type="reset" value="input (reset)"></p>
-        <p><input type="submit" value="input (submit)"></p>
-      </div>
-
-      <h2 class="Test-describe">disabled <code>button</code> and <code>input</code></h2>
-      <h3 class="Test-it">should have <code>default</code> cursor style</h3>
-      <div class="Test-run">
-        <p><button disabled>button</button></p>
-        <p><input disabled type="button" value="input (button)"></p>
-        <p><input disabled type="reset" value="input (reset)"></p>
-        <p><input disabled type="submit" value="input (submit)"></p>
-      </div>
-
-      <h2 class="Test-describe"><code>button</code>, <code>input</code></h2>
-      <h3 class="Test-it">should not have extra inner padding in Firefox</h3>
-      <div class="Test-run" id="button-input-padding">
-        <style>
-          #button-input-padding button,
-          #button-input-padding input {
-            border: 0;
-            padding: 0;
-            outline: 1px solid #ADD8E6;
-          }
-        </style>
-        <p><button>button</button></p>
-        <p><input type="button" value="input (button)"></p>
-        <p><input type="reset" value="input (reset)"></p>
-        <p><input type="submit" value="input (submit)"></p>
-      </div>
-
-      <h2 class="Test-describe"><code>fieldset</code></h2>
-      <h3 class="Test-it">should have consistent border, padding, and margin</h3>
-      <div class="Test-run">
-        <fieldset>
-          <div style="width:100%; height:100px; background:#ADD8E6;"></div>
-        </fieldset>
-      </div>
-
-      <h2 class="Test-describe"><code>legend</code></h2>
-      <h3 class="Test-it">should inherit color</h3>
-      <div class="Test-run" style="color:#ADD8E6;">
-        <fieldset>
-          <legend>legend</legend>
-        </fieldset>
-      </div>
-      <h3 class="Test-it">should not have padding</h3>
-      <div class="Test-run">
-        <fieldset>
-          <legend>legend</legend>
-        </fieldset>
-      </div>
-      <h3 class="Test-it">should wrap text</h3>
-      <div class="Test-run">
-        <fieldset>
-          <legend>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</legend>
-        </fieldset>
-      </div>
-
-      <h2 class="Test-describe"><code>textarea</code></h2>
-      <h3 class="Test-it">should not have a scrollbar unless overflowing</h3>
-      <div class="Test-run">
-        <textarea>textarea</textarea>
-      </div>
-
-      <h2 class="Test-describe"><code>[type="checkbox"]</code>, <code>[type="radio"]</code></h2>
-      <h3 class="Test-it">should have a <code>border-box</code> box model</h3>
-      <div class="Test-run Test-run--highlightEl" id="radio-box-model">
-        <style>
-          #radio-box-model {
-            width: 200px;
-            border: 1px solid red;
-          }
-
-          #radio-box-model input {
-            width: 100%;
-            border: 5px solid #ADD8E6;
-            display: block;
-            position: relative;
-          }
-        </style>
-        <input type="checkbox">
-        <input type="radio" name="rad">
-      </div>
-      <h3 class="Test-it">should not have padding</h3>
-      <div class="Test-run Test-run--highlightEl">
-        <input type="checkbox">
-        <input type="radio" name="rad">
-      </div>
-
-      <h2 class="Test-describe"><code>[type="number"]</code></h2>
-      <h3 class="Test-it">should display a default cursor for the decrement button's click target in Chrome</h3>
-      <div class="Test-run">
-        <input style="height:50px; font-size:15px;" type="number" id="in" min="0" max="10" value="5">
-      </div>
-
-      <h2 class="Test-describe"><code>[type="search"]</code></h2>
-      <h3 class="Test-it">should be styleable</h3>
-      <div class="Test-run">
-        <input type="search" style="border:1px solid #ADD8E6; padding:10px; width:200px;">
-      </div>
-      <h3 class="Test-it">should reference inherited color</h3>
-      <div class="Test-run">
-        <input type="text" placeholder="Text goes here" style="background-color: black; color: orange;">
-      </div>
-
-    </div>
+  code: ""
 css:
   lang: css
   code: >-
     /* Variables
-      ========================================================================== */
+     * ========================================================================== *
 
     /**
      * Typography
      */
 
     :root {
-      --font-family: system-ui;
-      --font-family-monospace: menlo, consolas, roboto mono, ubuntu monospace, oxygen mono, liberation mono, monospace;
+      --font-family: system-ui,
+        /* macOS 10.11-10.12 */ -apple-system,
+        /* Windows 6+ */ 'Segoe UI',
+        /* Android 4+ */ 'Roboto',
+        /* Ubuntu 10.10+ */ 'Ubuntu', 
+        /* Gnome 3+ */ 'Cantarell',
+        /* KDE Plasma 5+ */ 'Noto Sans',
+        /* fallback */ sans-serif,
+        /* macOS emoji */ 'Apple Color Emoji',
+        /* Windows emoji */ 'Segoe UI Emoji',
+        /* Windows emoji */ 'Segoe UI Symbol',
+        /* Linux emoji */ 'Noto Color Emoji';
+      --font-family-monospace: /* macOS 10.10+ */ "Menlo",
+        /* Windows 6+ */ "Consolas",
+        /* Android 4+ */ "Roboto Mono",
+        /* Ubuntu 10.10+ */ "Ubuntu Monospace",
+        /* KDE Plasma 5+ */ "Noto Mono",
+        /* KDE Plasma 4+ */ "Oxygen Mono",
+        /* Linux/OpenOffice fallback */ "Liberation Mono",
+        /* fallback */ monospace,
+        /* macOS emoji */ "Apple Color Emoji",
+        /* Windows emoji */ "Segoe UI Emoji",
+        /* Windows emoji */ "Segoe UI Symbol",
+        /* Linux emoji */ "Noto Color Emoji";
     }
 
 
@@ -410,7 +73,6 @@ css:
 
     /**
      * Colors
-     * https://yeun.github.io/open-color
      */
 
     :root {
@@ -548,7 +210,7 @@ css:
 
 
     /* Document
-      ========================================================================== */
+     * ========================================================================== */
 
     *,
 
@@ -556,7 +218,28 @@ css:
 
     ::after {
       box-sizing: inherit;
-      overflow: inherit;
+    }
+
+
+    /**
+     * 1. Remove animations when motion is reduced (opinionated).
+     * 2. Remove fixed background attachments when motion is reduced (opinionated).
+     * 3. Remove timed scrolling behaviors when motion is reduced (opinionated).
+     * 4. Remove transitions when motion is reduced (opinionated).
+     */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        animation-delay: -1ms !important; /* 1 */
+        animation-duration: 1ms !important; /* 1 */
+        animation-iteration-count: 1 !important; /* 1 */
+        background-attachment: initial !important; /* 2 */
+        scroll-behavior: auto !important; /* 3 */
+        transition-delay: 0s !important; /* 4 */
+        transition-duration: 0s !important; /* 4 */
+      }
     }
 
 
@@ -570,25 +253,6 @@ css:
     ::after {
       text-decoration: inherit; /* 1 */
       vertical-align: inherit; /* 2 */
-    }
-
-
-    /**
-     * Remove the margin in all browsers (opinionated).
-     */
-
-    * {
-      margin: 0;
-    }
-
-
-    /**
-     * Add default margin to all elements.
-     * https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
-     */
-
-    * + * {
-      margin-block-start: var(--vertical-rhythm-1, 1.5em);
     }
 
 
@@ -621,60 +285,58 @@ css:
      *    IE on Windows Phone and in iOS.
      * 6. Breaks words to prevent overflow in all browsers (opinionated).
      * 7. Add border box sizing in all browsers (opinionated).
-     * 8. Add auto overflow in all browsers (opinionated).
-     *    https://bocoup.com/blog/new-overflow-default
      */
 
     html {
-      box-sizing: border-box; /* 7 */
-      overflow: auto; /* 8 */
       cursor: default; /* 1 */
       color: var(--color-gray-9, #222);
       font-family: var(--font-family, sans-serif);
       font-size: var(--modular-scale-0, 1rem);
       line-height: var(--vertical-rhythm-base, 1.5); /* 2 */
       -moz-tab-size: 4; /* 3 */
-          tab-size: 4; /* 3 */
+           tab-size: 4; /* 3 */
       -webkit-tap-highlight-color: transparent /* 4 */;
           -ms-text-size-adjust: 100%; /* 5 */
       -webkit-text-size-adjust: 100%; /* 5 */
       word-break: break-word; /* 6 */
+      box-sizing: border-box; /* 7 */
     }
 
 
-    @media print {
-       *,
-       *::before,
-       *::after {
-        background: transparent !important;
-        color: #000 !important;
+    /**
+     * Smooth scroll, except for find on page.
+     */
 
-        /* Black prints faster */
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-      }
+    html:focus-within {
+      scroll-behavior: smooth;
     }
 
 
     /* Sections
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
-     * Remove the margin in all browsers (opinionated).
+     * 1. Remove the margin in all browsers (opinionated).
+     * 2. Nicer looking fonts for OS X and iOS.
      */
 
     body {
-      margin-block-start: 0;
+      margin: 0; /* 1 */
+      -webkit-font-smoothing: antialised: /* 2 */
     }
 
 
     /**
-     * Render the `main` element consistently in IE.
+     * Add default margin to all elements.
      */
 
-    main {
-      display: block;
+    body * + * {
+      margin-top: var(--vertical-rhythm-1, 1.5em);
+    }
+
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 0;
     }
 
 
@@ -725,26 +387,11 @@ css:
     }
 
 
-    @media print {
-      h2,
-      h3 {
-        orphans: 3;
-        widows: 3;
-      }
-
-      h2,
-      h3 {
-        page-break-after: avoid;
-      }
-    }
-
-
     /* Grouping content
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
      * Smartly align text.
-     * http://nocode.in/aligning-text-smartly-in-css
      */
 
     figure {
@@ -759,57 +406,47 @@ css:
 
 
     /**
-     * 1. Add the correct box sizing in Firefox.
-     * 2. Show the overflow in Edge 19- and IE.
-     * 3. A better looking default horizontal rule.
+     * Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
      */
 
-    hr {
-      height: 0; /* 1 */
-      overflow: visible; /* 2 */
-      border: 0; /* 3 */
-      border-block-start: 1px solid currentColor; /* 3 */
+    dl dl,
+
+    dl ol,
+
+    dl ul,
+
+    ol dl,
+
+    ul dl {
+      margin: 0;
     }
 
 
     /**
-     * Remove the list style on navigation lists in all browsers (opinionated).
+     * Remove the margin on nested lists in Edge 18- and IE.
      */
 
-    nav ol,
+    ol ol,
 
-    nav ul {
-      list-style: none;
-      padding: 0;
+    ol ul,
+
+    ul ol,
+
+    ul ul {
+      margin: 0;
     }
 
 
     /**
-     * 1. Use the default monospace user interface font
-     *    in all browsers (opinionated).
-     * 2. Correct the odd `em` font sizing in all browsers.
-     * 3. Turn off kerning and ligatures,
-     *    turn on lining, tabular numerals, slashed zero.
+     * Remove the margin in all browsers (opinionated).
      */
 
-    pre {
-      font-family: var(--font-family-monospace, monospace, monospace); /* 1 */
-      font-size: var(--modular-scale-0, 1em); /* 2 */
-      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 3 */
+    li,
+
+    dd {
+      margin-top: 0;
     }
 
-
-    @media print {
-      pre {
-        white-space: pre-wrap !important;
-        border: 1px solid #999;
-        page-break-inside: avoid;
-      }
-    }
-
-
-    /* Text-level semantics
-      ========================================================================== */
 
     /**
      * Hang numbers.
@@ -829,7 +466,7 @@ css:
 
     ol > li::before {
       position: absolute;
-      padding-inline-end: 0.5em;
+      padding-right: 0.5em;
       text-align: end;
       transform: translateX(-100%);
       content: counter(li) ".";
@@ -839,28 +476,78 @@ css:
 
 
     /**
-     * Remove the margin in all browsers (opinionated).
+     * 1. Correct the inheritance of border color in Firefox.
+     * 2. Add the correct box sizing in Firefox.
+     * 3. Show the overflow in Edge 18- and IE.
+     * 4. A better looking default horizontal rule.
      */
 
-    li,
-
-    dd {
-      margin-block-start: 0;
+    hr {
+      color: inherit; /* 1 */
+      height: 0; /* 2 */
+      overflow: visible; /* 3 */
+      border: 0; /* 4 */
+      border-top: 1px solid currentColor; /* 4 */
     }
 
 
     /**
-     * 1. Remove the gray background on active links in IE 10.
-     * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+     * Add the correct display in IE.
      */
 
-    a {
-      color: var(--color-blue-5, #00e);
-      background-color: transparent; /* 1 */
+    main {
+      display: block;
+    }
 
-      /* transition: color 0.15s; */
-      -webkit-text-decoration-skip: objects; /* 2 */
-      text-decoration-skip: auto; /* 1 */
+
+    /**
+     * Remove the list style on navigation lists in all browsers (opinionated).
+     */
+
+    nav ol,
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+
+    /**
+     * Prevent VoiceOver from ignoring list semantics in Safari (opinionated).
+     */
+
+    nav li::before {
+      content: '\200B';
+    }
+
+
+    p {
+      margin-bottom: 0;
+    }
+
+
+    /**
+     * 1. Use the default monospace user interface font in all browsers (opinionated).
+     * 2. Correct the odd `em` font sizing in all browsers.
+     * 3. Prevent overflow of the container in all browsers (opinionated).
+     * 4. Turn off kerning and ligatures,
+     *    turn on lining, tabular numerals, slashed zero.
+     */
+
+    pre {
+      font-family: var(--font-family-monospace, monospace); /* 1 */
+      font-size: var(--modular-scale-0, 1em); /* 2 */
+      overflow: auto; /* 3 */
+      -ms-overflow-style: scrollbar; /* 3 */
+      font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 4 */
+    }
+
+
+    /* Text-level semantics
+     * ========================================================================== */
+
+    a {
+      text-decoration-skip-ink: auto;
     }
 
 
@@ -876,25 +563,12 @@ css:
 
 
     /**
-     * 1. Remove the bottom border in Chrome 57-
-     * 2. Add the correct text decoration in Chrome, Edge 19-, IE, Opera, and Safari.
+     * Add the correct text decoration in Edge 18-, IE, and Safari.
      */
 
     abbr[title] {
-      border-block-end: none; /* 1 */
-      text-decoration: underline; /* 2 */
-      text-decoration: underline dotted; /* 2 */
-    }
-
-
-    /**
-     * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
-     */
-
-    b,
-
-    strong {
-      font-weight: inherit;
+      text-decoration: underline;
+      text-decoration: underline dotted;
     }
 
 
@@ -910,8 +584,7 @@ css:
 
 
     /**
-     * 1. Use the default monospace user interface font
-     *    in all browsers (opinionated).
+     * 1. Use the default monospace user interface font in all browsers (opinionated).
      * 2. Correct the odd `em` font sizing in all browsers.
      * 3. Turn off kerning and ligatures,
      *    turn on lining, tabular numerals, slashed zero.
@@ -922,7 +595,7 @@ css:
     kbd,
 
     samp {
-      font-family: var(--font-family-monospace, monospace, monospace); /* 1 */
+      font-family: var(--font-family-monospace, monospace); /* 1 */
       font-size: var(--modular-scale-0, 1em); /* 2 */
       font-feature-settings: "kern" 0, "liga" 0, "calt" 1, "dlig" 0, "pnum" 0, "tnum" 1, "onum" 0, "lnum" 1, "zero" 1; /* 3 */
     }
@@ -938,45 +611,22 @@ css:
 
 
     /**
-     * Prevent `sub` and `sup` elements from affecting the line height in
-     * all browsers.
-     */
-
-    sub,
-
-    sup {
-      font-size: 75%;
-
-      /* line-height: 0; */
-
-      /* position: relative; */
-      vertical-align: baseline;
-    }
-
-
-    /**
-     * 1. Turn on proper subscript numerals.
+     * Turn on proper subscript numerals.
      */
 
     sub {
-      /* inset-block-end: -0.25em; */
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "subs" 1; /* 1 */
     }
 
 
     /**
-     * 1. Turn on proper supercript numerals.
+     * Turn on proper supercript numerals.
      */
 
     sup {
-      /* inset-block-start: -0.5em; */
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0, "sups" 1; /* 1 */
     }
 
-
-    /**
-     * https://css-tricks.com/time-element
-     */
 
     time {
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0;
@@ -984,56 +634,26 @@ css:
 
 
     /**
-     * 1. Inherit style issues with custom selections, per robsterlini.co.uk/journal/opentype-and-selection-dont-mix.
-     * 2. Remove text-shadow in selection highlight:
-     *    https://twitter.com/miketaylr/status/12228805301
+     * 1. Inherit style issues with custom selections.
+     * 2. Remove text-shadow in selection highlight.
      */
 
-    ::selection {
+    ::-moz-selection {
       color: inherit; /* 1 */
-      text-shadow: none; /* 2 */
-      background-color: #b3d4fc;
+      text-shadow: inherit; /* 2 */
+      background-color: #b3d4fc; /* 1 */
     }
 
 
-    @media print {
-      a,
-      a:visited {
-        text-decoration: underline;
-      }
-
-      a[href]::after {
-        content: " (" attr(href) ")";
-      }
-
-      abbr[title]::after {
-        content: " (" attr(title) ")";
-      }
-
-      /**
-       * Don't show links that are fragment identifiers,
-       * or use the `javascript:` pseudo protocol
-       */
-
-      a[href^="#"]::after,
-      a[href^="javascript:"]::after {
-        content: "";
-      }
-
-      blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-      }
-
-      p {
-        orphans: 3;
-        widows: 3;
-      }
+    ::selection {
+      color: inherit; /* 1 */
+      text-shadow: inherit; /* 2 */
+      background-color: #b3d4fc; /* 1 */
     }
 
 
     /* Embedded content
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
      * Change the alignment on media elements in all browsers (opinionated).
@@ -1055,41 +675,20 @@ css:
 
 
     /**
-     * Responsive utilities: https://github.com/mrmrs/fluidity.
+     * Restrict sizing to the page width in all browsers (opinionated).
      */
-
-    img,
 
     canvas,
 
     iframe,
 
-    video,
+    img,
 
-    svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-
-    /**
-     * Add the correct display in IE 9-.
-     */
-
-    audio,
+    svg,
 
     video {
-      display: inline-block;
-    }
-
-
-    /**
-     * Add the correct display in iOS 4-7.
-     */
-
-    audio:not([controls]) {
-      display: none;
-      height: 0;
+      height: auto;
+      max-width: 100%;
     }
 
 
@@ -1098,15 +697,6 @@ css:
      */
 
     iframe {
-      border-style: none;
-    }
-
-
-    /**
-     * Remove the border on images within links in IE 10-.
-     */
-
-    img {
       border-style: none;
     }
 
@@ -1129,26 +719,23 @@ css:
     }
 
 
-    @media print {
-      img {
-        page-break-inside: avoid;
-      }
-    }
-
-
     /* Tabular data
       ========================================================================== */
 
     /**
      * 1. Collapse border spacing in all browsers (opinionated).
-     * 2. Turn on kerning, standard ligatures, and proportional, oldstyle numerals.
+     * 2. Correct table border color inheritance in all Chrome, Edge, and Safari.
+     * 3. Remove text indentation from table contents in Chrome, Edge, and Safari.
+     * 4. Turn on kerning, standard ligatures, and proportional, oldstyle numerals.
      *    Turn off all other ligatures, tabular, lining numerals, and alternates.
      */
 
     table {
       width: 100%;
       border-collapse: collapse; /* 1 */
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 2 */
+      border-color: inherit; /* 2 */
+      text-indent: 0; /* 3 */
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 4 */
     }
 
 
@@ -1168,76 +755,65 @@ css:
     }
 
 
-    @media print {
-      /**
-       * Printing Tables:
-       * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
-       */
-
-      thead {
-        display: table-header-group;
-      }
-
-      tr {
-        page-break-inside: avoid;
-      }
-    }
-
-
     /* Forms
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
-     * Inherit styling in all browsers (opinionated).
+     * 1. Change the inconsistent appearance in all browsers (opinionated).
+     * 2. Add typography inheritance in all browsers (opinionated).
      */
 
     button,
 
     input,
 
-    optgroup,
-
     select,
 
     textarea {
-      font-size: inherit;
-      font-family: inherit;
-      line-height: inherit;
+      background-color: transparent; /* 1 */
+      border: 1px solid WindowFrame; /* 1 */
+      color: inherit; /* 1 */
+      font: inherit; /* 2 */
+      letter-spacing: inherit; /* 2 */
+      padding: 0.25em 0.375em; /* 1 */
     }
 
 
     /**
-     * Responsive utilities: https://github.com/mrmrs/fluidity.
+     * Restrict sizing to the page width in all browsers (opinionated).
      */
+
+    input,
 
     select,
 
     textarea {
+      height: auto;
       max-width: 100%;
     }
 
 
     /**
-     * Show the overflow in IE.
-     * 1. Show the overflow in Edge 19-.
+     * Remove the margin on controls in Safari.
      */
 
     button,
 
-    input { /* 1 */
-      overflow: visible;
+    input,
+
+    select {
+      margin: 0;
     }
 
 
     /**
-     * Remove the inheritance of text transform in Edge 19-, Firefox, and IE.
-     * 1. Remove the inheritance of text transform in Firefox.
+     * 1. Show the overflow in IE.
+     * 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
      */
 
-    button,
-
-    select { /* 1 */
-      text-transform: none;
+    button {
+      overflow: visible; /* 1 */
+      text-transform: none; /* 2 */
     }
 
 
@@ -1256,35 +832,6 @@ css:
     }
 
 
-    /**
-     * Remove the inner border and padding of focus outlines in Firefox.
-     */
-
-    button::-moz-focus-inner,
-
-    [type="button"]::-moz-focus-inner,
-
-    [type="reset"]::-moz-focus-inner,
-
-    [type="submit"]::-moz-focus-inner {
-      border-style: none;
-      padding: 0;
-    }
-
-
-    /**
-     * Restore the focus outline styles unset by the previous rule in Firefox.
-     */
-
-    button:-moz-focusring,
-
-    [type="button"]:-moz-focusring,
-
-    [type="reset"]:-moz-focusring,
-
-    [type="submit"]:-moz-focusring {
-      outline: 1px dotted ButtonText;
-    }
 
 
     /**
@@ -1299,7 +846,16 @@ css:
 
 
     /**
-     * 1. Correct the text wrapping in Edge 19- and IE.
+     * Show the overflow in Edge 18- and IE.
+     */
+
+    input {
+      overflow: visible;
+    }
+
+
+    /**
+     * 1. Correct the text wrapping in Edge 18- and IE.
      * 2. Correct the color inheritance from `fieldset` elements in IE.
      * 3. Remove the padding so developers are not caught out when they zero out
      *    `fieldset` elements in all browsers.
@@ -1314,20 +870,21 @@ css:
     }
 
 
-    /**
-     * Remove the margin in all browsers (opinionated).
-     */
-
     option,
 
     optgroup {
-      margin-block-start: 0;
+      margin-top: 0;
+    }
+
+
+    meter {
+
     }
 
 
     /**
-     * 1. Add the correct display in Edge 19- and IE.
-     * 2. Add the correct vertical alignment in Chrome, Edge, Firefox, and Opera.
+     * 1. Add the correct display in Edge 18- and IE.
+     * 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
      */
 
     progress {
@@ -1337,77 +894,41 @@ css:
 
 
     /**
-     * 1. Remove the default vertical scrollbar in IE 10+.
-     * 2. Change the resize direction in all browsers (opinionated).
+     * Change the inconsistent appearance in all browsers (opinionated).
+     * 1. Remove the inheritance of text transform in Firefox.
+     */
+
+    select {
+      text-transform: none; /* 1 */
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      background: no-repeat right center / 1em;
+      border-radius: 0;
+      padding-right: 1em;
+    }
+
+
+    /**
+     * Change the inconsistent appearance in all browsers (opinionated).
+     */
+
+    select:not([multiple]):not([size]) {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
+    }
+
+
+    /**
+     * 1. Remove the margin in Firefox and Safari.
+     * 2. Remove the default vertical scrollbar in IE.
+     * 3. Change the resize direction in all browsers (opinionated).
      */
 
     textarea {
       width: 100%;
-      overflow: auto; /* 1 */
-      resize: vertical; /* 2 */
-    }
-
-
-    /**
-     * Remove the padding in IE 10-.
-     */
-
-    [type="checkbox"],
-
-    [type="radio"] {
-      padding: 0;
-    }
-
-
-    /**
-     * Correct the cursor style of increment and decrement buttons in Chrome and Safari.
-     */
-
-    [type="number"]::-webkit-inner-spin-button,
-
-    [type="number"]::-webkit-outer-spin-button {
-      height: auto;
-    }
-
-
-    /**
-     * 1. Correct the odd appearance in Chrome, Edge, and Safari.
-     * 2. Correct the outline style in Safari.
-     */
-
-    [type="search"] {
-      -webkit-appearance: textfield; /* 1 */
-      outline-offset: -2px; /* 2 */
-    }
-
-
-    /**
-     * Correct the text style of placeholders in Chrome, Edge, and Safari.
-     */
-
-    ::-webkit-input-placeholder {
-      color: inherit;
-      opacity: 0.54;
-    }
-
-
-    /**
-     * Remove the inner padding in Chrome, Edge, and Safari on macOS.
-     */
-
-    [type="search"]::-webkit-search-decoration {
-      -webkit-appearance: none;
-    }
-
-
-    /**
-     * 1. Correct the inability to style clickable types in iOS and Safari.
-     * 2. Change font properties to `inherit` in Safari.
-     */
-
-    ::-webkit-file-upload-button {
-      -webkit-appearance: button; /* 1 */
-      font: inherit; /* 2 */
+      margin: 0; /* 1 */
+      overflow: auto; /* 2 */
+      resize: vertical; /* 3 */
+      resize: block; /* 3 */
     }
 
 
@@ -1435,6 +956,98 @@ css:
 
 
     /**
+     * Remove the border and padding in all browsers (opinionated).
+     */
+
+    [type="color"],
+
+    [type="range"] {
+      border-width: 0;
+      padding: 0;
+    }
+
+
+    /**
+     * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+     * 2. Correct the outline style in Safari.
+     */
+
+    [type="search"] {
+      -webkit-appearance: textfield; /* 1 */
+      outline-offset: -2px; /* 2 */
+    }
+
+
+    /**
+     * Change the inconsistent appearance in IE (opinionated).
+     */
+
+    ::-ms-expand {
+      display: none;
+    }
+
+
+    /**
+     * Correct the cursor style of increment and decrement buttons in Safari.
+     */
+
+    ::-webkit-inner-spin-button,
+
+    ::-webkit-outer-spin-button {
+      height: auto;
+    }
+
+
+    /**
+     * Correct the text style of placeholders in Chrome, Edge, and Safari.
+     */
+
+    ::-webkit-input-placeholder {
+      color: inherit;
+      opacity: 0.54;
+    }
+
+
+    /**
+     * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+     */
+
+    ::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+
+
+    /**
+     * 1. Correct the inability to style clickable types in iOS and Safari.
+     * 2. Change font properties to `inherit` in Safari.
+     */
+
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button; /* 1 */
+      font: inherit; /* 2 */
+    }
+
+
+    /**
+     * Remove the inner border and padding of focus outlines in Firefox.
+     */
+
+    ::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+
+    /**
+     * Restore the focus outline styles unset by the previous rule in Firefox.
+     */
+
+    :-moz-focusring {
+      outline: 1px dotted ButtonText;
+    }
+
+
+    /**
      * Remove the additional :invalid styles in Firefox.
      */
 
@@ -1443,19 +1056,11 @@ css:
     }
 
 
-    @media print {
-      form {
-        display: none;
-      }
-    }
-
-
     /* Interactive
       ========================================================================== */
 
     /**
-     * Add the correct display in Edge 19-, IE 10+, and Firefox.
-     * http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
+     * Add the correct display in Edge 18- and IE.
      */
 
     details {
@@ -1464,7 +1069,7 @@ css:
 
 
     /**
-     * Add the correct styles in Edge 19-, IE, and Safari.
+     * Add the correct styles in Edge 18-, IE, and Safari.
      */
 
     dialog {
@@ -1475,11 +1080,11 @@ css:
       height: -moz-fit-content;
       height: -webkit-fit-content;
       height: fit-content;
-      inset-inline-start: 0;
+      left: 0;
       margin: auto;
       padding: 1em;
       position: absolute;
-      inset-inline-end: 0;
+      right: 0;
       width: -moz-fit-content;
       width: -webkit-fit-content;
       width: fit-content;
@@ -1492,36 +1097,30 @@ css:
 
 
     /**
-     * Add the correct display in all browsers.
+     * 1. Add the correct display in all browsers.
+     * 2. Add the correct cursor.
      */
 
     summary {
-      display: list-item;
+      display: list-item; /* 1 */
+      cursor: pointer; /* 2 */
     }
 
 
     /**
-     * https://css-tricks.com/html5-meter-element
+     * Display nested block elements inline.
      */
-    meter {
 
+    summary > * {
+      display: inline;
     }
 
 
     /* Scripting
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
-     * Add the correct display in IE 9-.
-     */
-
-    canvas {
-      display: inline-block;
-    }
-
-
-    /**
-     * Add the correct display in IE 10+.
+     * Add the correct display in IE.
      */
 
     template {
@@ -1529,49 +1128,8 @@ css:
     }
 
 
-    /* User interaction
-      ========================================================================== */
-
-    /**
-     * 1. Remove the tapping delay in IE 10.
-     * 2. Remove the tapping delay on clickable elements
-          in all browsers (opinionated).
-     */
-
-    a,
-
-    area,
-
-    button,
-
-    input,
-
-    label,
-
-    select,
-
-    summary,
-
-    textarea,
-
-    [tabindex] {
-      -ms-touch-action: manipulation; /* 1 */
-      touch-action: manipulation; /* 2 */
-    }
-
-
-    /**
-     * Add the correct display in IE 10-.
-     * https://meowni.ca/hidden.is.a.lie.html
-     */
-
-    [hidden] {
-      display: none !important;
-    }
-
-
     /* Accessibility
-      ========================================================================== */
+     * ========================================================================== */
 
     /**
      * Change the cursor on busy elements in all browsers (opinionated).
@@ -1626,102 +1184,21 @@ css:
      */
 
     [hidden][aria-hidden="false"] + * {
-      margin-block-start: 0;
-    }
-
-
-    /*! suit-test v0.1.0 | MIT License | github.com/suitcss */
-
-
-    .Test {
-      background: #fff;
-      counter-reset: test-describe;
-    }
-
-
-    .Test-describe:before {
-      content: counter(test-describe);
-      counter-increment: test-describe;
-    }
-
-
-    .Test-describe {
-      counter-reset: test-it;
-    }
-
-
-    .Test-it:before {
-      content: counter(test-describe) "." counter(test-it);
-      counter-increment: test-it;
-    }
-
-
-    .Test-title {
-      font-size: 2em;
-      font-family: sans-serif;
-      padding: 20px;
-      margin: 20px 0;
-      background: #eee;
-      color: #999;
-    }
-
-
-    .Test-describe,
-
-    .Test-it {
-      background: #eee;
-      border-left: 5px solid #666;
-      color: #666;
-      font-family: sans-serif;
-      font-weight: bold;
-      margin: 20px 0;
-      padding: 0.75em 20px;
-    }
-
-
-    .Test-describe {
-      font-size: 1.5em;
-      margin: 60px 0 20px;
-    }
-
-
-    .Test-describe:before,
-
-    .Test-it:before {
-      color: #999;
-      display: inline-block;
-      margin-right: 10px;
-      min-width: 30px;
-      text-transform: uppercase;
-    }
-
-
-    /* Custom helpers */
-
-
-    /**
-     * Test whether the body's margin has been removed
-     */
-
-    body {
-      background: red;
-    }
-
-
-    /**
-     * Highlight the bounds of direct children of a test block
-     */
-
-    .Test-run--highlightEl > * {
-      outline: 1px solid #ADD8E6;
+      margin-top: 0;
     }
 js:
   lang: javascript
-published: false
 ---
-https://necolas.github.io/normalize.css/8.0.1/normalize.css
-https://csstools.github.io/sanitize.css/10.0.0/sanitize.css
-https://raw.githubusercontent.com/kennethormandy/normalize-opentype.css/v0.2.4/normalize-opentype.css
-https://raw.githubusercontent.com/h5bp/html5-boilerplate/v7.2.0/dist/css/main.css
-https://github.com/benfrain/app-reset/blob/master/app-reset.css\
-https://css-tricks.com/the-focus-visible-trick/
+* https://necolas.github.io/normalize.css/8.0.1/normalize.css
+* https://csstools.github.io/sanitize.css/10.0.0/sanitize.css
+* https://raw.githubusercontent.com/kennethormandy/normalize-opentype.css/v0.2.4/normalize-opentype.css
+* https://raw.githubusercontent.com/h5bp/html5-boilerplate/v7.2.0/dist/css/main.css
+* https://github.com/benfrain/app-reset/blob/master/app-reset.css\
+* https://css-tricks.com/the-focus-visible-trick/
+* https://yeun.github.io/open-color
+* https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+* http://nocode.in/aligning-text-smartly-in-css
+* https://css-tricks.com/time-element
+* https://github.com/mrmrs/fluidity
+* * http://www.smashingmagazine.com/2014/11/28/complete-polyfill-html5-details-element
+* https://css-tricks.com/html5-meter-element
